@@ -617,6 +617,37 @@ body{font-weight:400;letter-spacing:.005em}
 }
 @media (pointer: coarse) and (min-width: 700px){ body{font-size:17px} .xrow .t,.en-title{letter-spacing:0} .glance p{font-size:16px} .xbody,.sgr .c{font-size:15.5px} }
 @media (hover: none){ .tile:hover,.mi:hover{transform:none;box-shadow:none} .mi:hover .go{transform:none} }
+
+.xdocs>h4{justify-content:flex-start}
+.xdocs-all{margin-left:auto;font-family:var(--f-th);font-size:13.5px;text-decoration:none;color:var(--accent)}
+.xdoc-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.xdoc{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 14px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.xdoc:first-child{border-top:0}
+.xdoc:hover{background:var(--accent-soft)}
+.xdoc-i{font-family:var(--f-mono);font-size:11px;color:var(--gold);border:1px solid var(--gold);border-radius:4px;text-align:center;padding:2px 0}
+.xdoc-t{font-size:15px;line-height:1.45;overflow-wrap:anywhere}
+.xdoc-t small{display:block;font-size:12.5px;color:var(--muted)}
+.xdoc-go{font-size:13.5px;color:var(--accent);white-space:nowrap}
+.xdoc-none{color:var(--muted);font-size:14px;margin:0}
+.xdocs-more>summary{cursor:pointer;color:var(--accent);font-size:14.5px;padding:4px 0 10px}
+.xrow .dc{font-size:12.5px;color:var(--gold);margin-top:4px}
+@media (pointer: coarse){ .xdoc{padding:14px} }
+
+.xspeech-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 12px 10px 16px;border-bottom:1px solid var(--speech-line);font-size:14.5px;font-weight:500}
+.xspeech-h .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--gold)}
+.xspeech-h .xacts{margin-left:auto;padding:0}
+.xspeech .speech-body{border-top:0}
+a.sgl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.35fr) 18px;gap:16px;padding:15px 2px;align-items:start;text-decoration:none;color:inherit}
+a.sgl:hover{background:var(--surface-2)}
+a.sgl .chev{margin-top:3px}
+.sgt-hint{font-size:13px;color:var(--muted);margin:10px 0 0}
+.lead-row{margin-top:10px}
+.ri-sub{padding-top:4px;padding-bottom:4px}
+.ri-sub .rt{font-family:var(--f-th);font-size:13.5px;color:var(--muted);padding-left:10px;border-left:1px solid var(--gold)}
+.ri-sub[aria-current="page"] .rt{color:var(--ink)}
+.agstrip a.sub{min-width:auto;padding:0 10px;font-family:var(--f-th);font-size:13.5px;border-style:dashed}
+@media (max-width: 699px){ a.sgl{grid-template-columns:minmax(0,1fr) 18px} a.sgl>span:nth-child(2),a.sgl>span:nth-child(3){grid-column:1} a.sgl .chev{grid-column:2;grid-row:1} }
+@media (pointer: coarse){ a.sgl{padding:18px 4px} .ri-sub{padding-top:7px;padding-bottom:7px} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
 </style>
 </head>
@@ -939,11 +970,11 @@ const EXEC={
  5:{th:'การบรรยายสรุปงานของกลไกหัวหน้าฝ่ายความมั่นคง BIMSTEC (BNSCs)',bottom:'รับทราบ ไม่มีข้อสังเกตเพิ่ม'},
  6:{th:'ผลการประชุมคณะทำงานย่อย 5 คณะ',consider:'รายงานการประชุมของ 5 คณะ และเอกสารฉบับสมบูรณ์ที่จะเสนอ SOM-H รับรอง',bottom:'สนับสนุนการรับรองเอกสาร และขอให้หาข้อยุติข้อ 16 ของร่างอนุสัญญาต่อต้านการค้ามนุษย์ก่อนเสนอ SOM-H',next:'เอกสารฉบับสมบูรณ์เสนอ SOM-H ครั้งที่ 1 วันที่ 12 ต.ค. 2569',
    sg:[
-    {re:/Human Trafficking/i,decide:'รายงาน 4 ฉบับ · TOR และแผนปฏิบัติการต่อต้านการค้ามนุษย์ในภูมิภาคอ่าวเบงกอล ฉบับสมบูรณ์',pos:'สนับสนุนการรับรอง TOR และแผนปฏิบัติการ ซึ่ง TOR ได้บรรจุข้อเสนอด้านคุ้มครองผู้เสียหายของไทยแล้ว'},
-    {re:/Narcotic/i,decide:'รายงาน 2 ฉบับ · แผนปฏิบัติการควบคุมยาเสพติด · รายงานสถานการณ์ยาเสพติดประจำปี',pos:'สนับสนุนการรับรองแผนปฏิบัติการ และแจ้งว่าไทยกำลังจัดทำรายงานประจำปีฉบับที่ 2 ให้แล้วเสร็จ'},
-    {re:/Money Laundering/i,decide:'รายงาน 2 ฉบับ · เอกสาร IFF พร้อมแผนปฏิบัติการ · MoU เสริมสร้างขีดความสามารถ',pos:'สนับสนุนการรับรองเอกสาร IFF และ MoU ไทยจะส่งแบบฟอร์มแผนงาน AML/CFT 2569–2571 และเน้นความเสี่ยงจากสินทรัพย์เสมือนและขบวนการหลอกลวงออนไลน์'},
-    {re:/Legal/i,decide:'อนุสัญญาต่อต้านการค้ามนุษย์ · สถานะอนุสัญญา MLA · ร่างอนุสัญญาส่งผู้ร้ายข้ามแดนและโอนตัวผู้ต้องคำพิพากษา',pos:'ขอให้แก้ถ้อยคำข้อ 16 (การมีผลใช้บังคับ) ที่ขัดกันก่อนเสนอ SOM-H และขอเวลาเพิ่มสำหรับร่างอนุสัญญา 2 ฉบับ'},
-    {re:/Radicali/i,decide:'รายงานการประชุมครั้งที่ 3',pos:'ไม่ขัดข้อง สนับสนุนทิศทางร่างแผนปฏิบัติการ โดยต้องสอดคล้องกับพันธกรณีสิทธิมนุษยชนและกฎหมายภายใน'}
+    {re:/Human Trafficking/i,short:'ค้ามนุษย์',decide:'รายงาน 4 ฉบับ · TOR และแผนปฏิบัติการต่อต้านการค้ามนุษย์ในภูมิภาคอ่าวเบงกอล ฉบับสมบูรณ์',pos:'สนับสนุนการรับรอง TOR และแผนปฏิบัติการ ซึ่ง TOR ได้บรรจุข้อเสนอด้านคุ้มครองผู้เสียหายของไทยแล้ว'},
+    {re:/Narcotic/i,short:'ยาเสพติด',decide:'รายงาน 2 ฉบับ · แผนปฏิบัติการควบคุมยาเสพติด · รายงานสถานการณ์ยาเสพติดประจำปี',pos:'สนับสนุนการรับรองแผนปฏิบัติการ และแจ้งว่าไทยกำลังจัดทำรายงานประจำปีฉบับที่ 2 ให้แล้วเสร็จ'},
+    {re:/Money Laundering/i,short:'AML/CFT',decide:'รายงาน 2 ฉบับ · เอกสาร IFF พร้อมแผนปฏิบัติการ · MoU เสริมสร้างขีดความสามารถ',pos:'สนับสนุนการรับรองเอกสาร IFF และ MoU ไทยจะส่งแบบฟอร์มแผนงาน AML/CFT 2569–2571 และเน้นความเสี่ยงจากสินทรัพย์เสมือนและขบวนการหลอกลวงออนไลน์'},
+    {re:/Legal/i,short:'กฎหมาย',decide:'อนุสัญญาต่อต้านการค้ามนุษย์ · สถานะอนุสัญญา MLA · ร่างอนุสัญญาส่งผู้ร้ายข้ามแดนและโอนตัวผู้ต้องคำพิพากษา',pos:'ขอให้แก้ถ้อยคำข้อ 16 (การมีผลใช้บังคับ) ที่ขัดกันก่อนเสนอ SOM-H และขอเวลาเพิ่มสำหรับร่างอนุสัญญา 2 ฉบับ'},
+    {re:/Radicali/i,short:'แนวคิดสุดโต่ง',decide:'รายงานการประชุมครั้งที่ 3',pos:'ไม่ขัดข้อง สนับสนุนทิศทางร่างแผนปฏิบัติการ โดยต้องสอดคล้องกับพันธกรณีสิทธิมนุษยชนและกฎหมายภายใน'}
    ]},
  7:{th:'การอนุวัติอนุสัญญา BIMSTEC ว่าด้วยการต่อต้านการก่อการร้าย อาชญากรรมข้ามชาติ และการค้ายาเสพติด',consider:'ประมวลความเห็นของประเทศสมาชิกเป็นข้อเสนอแนะแนวทางอนุวัติอนุสัญญา (มีผลใช้บังคับ 16 มี.ค. 2564)',bottom:'ยืนยันความเห็นที่ส่งไว้ เน้นการแลกเปลี่ยนข้อมูลที่ปลอดภัยและทันท่วงที และไม่ขัดข้องการเสนอข้อเสนอแนะต่อ SOM-H',next:'ข้อเสนอแนะเสนอ SOM-H ครั้งที่ 1 วันที่ 12 ต.ค. 2569'},
  8:{th:'ความจำเป็นในการคงคณะทำงานย่อยด้านการแลกเปลี่ยนข่าวกรอง',consider:'คงไว้หรือยุบคณะทำงานย่อยที่ไม่ได้ประชุมตั้งแต่ปี 2566 · อินเดีย เมียนมา เนปาล และศรีลังกาเสนอให้ยุบ',bottom:'ไม่ขัดข้องทั้งสองทาง หากยุบ ให้คณะทำงานย่อยอื่นปรับ TOR รับงานข่าวกรองในสาขาของตน ตามแนวทางของ SG-CCRT',next:'ผลการหารือเสนอ SOM-H ครั้งที่ 1 วันที่ 12 ต.ค. 2569'},
@@ -981,9 +1012,8 @@ function sgExec(a,sg){ const e=execOf(a).sg.find(s=>s.re.test(sg.name)); if(e) r
 function speechBlock(texts,label,title){
   if(!texts.length) return '';
   const i=SPEECH.push({label,paras:texts})-1;
-  return `<details class="xspeech"><summary><span class="k">STATEMENT</span><span>${esc(title||'ถ้อยแถลงภาษาอังกฤษ')} · ${texts.length} ย่อหน้า</span><span class="x"></span></summary>
-    <div class="speech-body" id="sp${i}">${texts.map(t=>`<p>${hl(t)}</p>`).join('')}</div>
-    <div class="xacts"><button class="btn" type="button" data-read="${i}">โหมดอ่าน</button><button class="btn" type="button" data-copy="${i}">คัดลอก</button></div></details>`;
+  return `<div class="xspeech"><div class="xspeech-h"><span class="k">STATEMENT</span><span>${esc(title||'ถ้อยแถลงภาษาอังกฤษ')}</span><span class="xacts"><button class="btn" type="button" data-read="${i}">โหมดอ่าน</button><button class="btn" type="button" data-copy="${i}">คัดลอก</button></span></div>
+    <div class="speech-body" id="sp${i}">${texts.map(t=>`<p>${hl(t)}</p>`).join('')}</div></div>`;
 }
 function speechTexts(ps){ return ps.flatMap(p=>p.text.split('\n').map(s=>s.trim()).filter(Boolean)); }
 function glance(e){
@@ -1005,9 +1035,18 @@ function positionBlock(nd,label,title){
   if(!th.length&&!sp.length) return '';
   return `<section class="xsec xpos"><h4>ท่าทีไทย</h4>${th.length?`<div class="xbody">${th.map(paraHtml).join('')}</div>`:''}${speechBlock(sp,label,title)}</section>`;
 }
+const folderUrl=()=>'https://drive.google.com/drive/folders/'+FOLDER.id;
 function filesBlock(list,title){
   if(FOLDER.state!=='ok'||!(list||[]).length) return '';
   return `<details class="xfiles"><summary>${esc(title||'เอกสารประกอบ')} · ${list.length} ไฟล์</summary>${fileGroups(list)}</details>`;
+}
+function docsBlock(a,files,noneText){
+  if(FOLDER.state!=='ok') return '';
+  const list=(files||a.files||[]).slice();
+  const key=x=>{ const m=toArabic(x.f.title||'').match(/^\s*(\d+)(?:\.(\d+))?/); return (x.f.kind==='agency'?1e6:0)+(m?(+m[1])*1000+(+(m[2]||0)):9e5); };
+  list.sort((x,y)=>key(x)-key(y));
+  const row=x=>{ const f=x.f; return `<a class="xdoc" href="${esc(fileLink(f))}" target="_blank" rel="noopener"><span class="xdoc-i">${esc(fileExt(f))}</span><span class="xdoc-t">${hl(fileName(f))}${f.kind==='agency'?'<small>ข้อมูลจากหน่วยงาน</small>':''}</span><span class="xdoc-go">เปิด ↗</span></a>`; };
+  return `<section class="xsec xdocs"><h4>เอกสารใน Google Drive<a class="xdocs-all" href="${esc(folderUrl())}" target="_blank" rel="noopener">แฟ้มทั้งหมด ↗</a></h4>${!list.length?`<p class="xdoc-none">${noneText||'ไม่มีเอกสารเฉพาะสำหรับวาระนี้'}</p>`:(!files&&a.subgroups.length&&list.length>6)?`<details class="xdocs-more"><summary>แสดงเอกสารทั้ง ${list.length} ไฟล์ของวาระนี้ (เอกสารของแต่ละคณะอยู่ในหน้าคณะทำงานย่อย)</summary><div class="xdoc-list">${list.map(row).join('')}</div></details>`:`<div class="xdoc-list">${list.map(row).join('')}</div>`}</section>`;
 }
 function itemRow(it,label){
   if(it.kind==='divider') return `<div class="xdiv">${hl(it.label)}</div>`;
@@ -1034,12 +1073,46 @@ function sgBlock(a,sg,k,label){
     </div></details>`;
 }
 
+function sgShort(a,sg){ const e=execOf(a).sg.find(s=>s.re.test(sg.name)); return (e&&e.short)||sgAcronym(sg.name); }
+const sgTitle=sg=>sg.name.replace(/^Sub-Group on (the )?/i,'');
+function seq(){ const out=[]; D.agendas.forEach(a=>{ out.push({h:'a'+a.n,a,label:'วาระที่ '+a.n,title:a.title,chip:String(a.n)});
+  a.subgroups.forEach((sg,k)=>out.push({h:`a${a.n}-${k+1}`,a,sg,k,label:`วาระที่ ${a.n} · ${sgShort(a,sg)}`,title:sgTitle(sg),chip:`${a.n}·${sgShort(a,sg)}`})); }); return out; }
+function stepHash(dir){ if(!D) return null; const h=(location.hash||'').replace(/^#/,''); const S=seq(); const i=S.findIndex(x=>x.h===h); if(i<0) return null; const t=S[i+dir]; return t?t.h:null; }
+function stripHtml(cur){ return `<nav class="agstrip" aria-label="เลือกวาระ">${seq().map(x=>`<a href="#${x.h}"${x.h===cur?' aria-current="page"':''}${x.sg?' class="sub"':''}>${esc(x.chip)}</a>`).join('')}</nav>`; }
+function pagerHtml(cur){ const S=seq(); const i=S.findIndex(x=>x.h===cur); const pv=S[i-1], nx=S[i+1];
+  return `<nav class="pager">${pv?`<a href="#${pv.h}"><small>← ${esc(pv.label)}</small><span>${esc(pv.title)}</span></a>`:'<span></span>'}${nx?`<a class="next" href="#${nx.h}"><small>${esc(nx.label)} →</small><span>${esc(nx.title)}</span></a>`:'<span></span>'}</nav>`; }
+function sgLink(a,sg,k){
+  const e=sgExec(a,sg); const isTH=/thailand/i.test(sg.lead);
+  return `<a class="sgr sgl" href="#a${a.n}-${k+1}"><span><div class="nm">${hl(sgTitle(sg))}</div><div class="ld${isTH?' th':''}">${isTH?'ไทยเป็นประเทศนำ':'ประเทศนำ: '+esc(sg.lead)}</div></span>
+    <span class="c">${hl(e.decide||'')}</span><span class="c pos">${hl(e.pos||'')}</span>${CHEV}</a>`;
+}
+function viewSubgroup(a,sg,k){
+  SPEECH=[];
+  const e=sgExec(a,sg); const isTH=/thailand/i.test(sg.lead);
+  const h0=`a${a.n}-${k+1}`; const label=`วาระที่ ${a.n} · ${sgShort(a,sg)}`;
+  const dayShort=a.day.label.replace(/^วัน/,'').replace(/ที่\s*/,' ');
+  const th=((sg.node.intro[0]||{}).text||'').split(/\s+(?=โดยที่ประชุม)/)[0];
+  const notes=sg.node.sections.filter(s=>s.kind==='note');
+  const next=notes.some(s=>/SOM-H/.test(s.text))?'เอกสารฉบับสมบูรณ์เสนอ SOM-H ครั้งที่ 1 วันที่ 12 ต.ค. 2569':'';
+  const items=sg.node.items;
+  let h=stripHtml(h0)+`<nav class="crumb"><a href="#jwg">ระเบียบวาระ</a><span>›</span><a href="#a${a.n}">วาระที่ ${a.n}</a><span>›</span><span>คณะทำงานย่อย ${k+1}/${a.subgroups.length}</span></nav>
+  <header class="xhead"><div class="eyebrow">วาระที่ ${a.n} · คณะทำงานย่อย ${k+1} จาก ${a.subgroups.length} · ${esc(dayShort)}</div>
+    <h2 class="en-title">${hl(sg.name)}</h2>${th?`<div class="th-title">${hl(th)}</div>`:''}
+    <div class="lead-row"><span class="pill${isTH?' lead':''}">${isTH?'ไทยเป็นประเทศนำ (Lead Shepherd)':'ประเทศนำ: '+esc(sg.lead)}</span></div></header>
+  ${glance({consider:e.decide,bottom:e.pos,next})}`;
+  if(items.length) h+=`<section class="xsec"><h4>รายการที่เสนอที่ประชุม</h4><div class="xitems">${items.map(it=>itemRow(it,label)).join('')}</div>${notes.map(s=>`<p class="xnote">${hl(s.text)}</p>`).join('')}</section>`;
+  else if(sg.node.intro.length) h+=`<section class="xsec"><h4>สาระสำคัญ</h4><div class="xbody">${sg.node.intro.map(paraHtml).join('')}</div></section>`;
+  h+=positionBlock(sg.node,label,isTH?'ถ้อยแถลงในฐานะประเทศนำ':'ถ้อยแถลง');
+  const seen=new Set(), sgFiles=[]; [...(sg.files||[]),...items.flatMap(it=>it.files||[])].forEach(x=>{ if(!seen.has(x.f.id)){ seen.add(x.f.id); sgFiles.push({f:x.f}); } });
+  h+=docsBlock(a,sgFiles,'ไม่มีเอกสารเฉพาะสำหรับคณะทำงานย่อยนี้');
+  return h+pagerHtml(h0);
+}
 function visibleAgendas(){ const q=Q.toLowerCase(); return D.agendas.filter(a=>!q||a.text.includes(q)); }
 function renderRail(cur){
   const vis=new Set(visibleAgendas());
   let h='';
   D.days.forEach(d=>{ const items=d.items.filter(a=>vis.has(a)); if(!items.length) return;
-    h+=`<div class="day-h">${esc(d.label)}</div>`+items.map(a=>`<a class="ri" href="#a${a.n}"${cur==='a'+a.n?' aria-current="page"':''}><span class="rn">${a.n}</span><span class="rt">${hl(a.title)}</span></a>`).join(''); });
+    h+=`<div class="day-h">${esc(d.label)}</div>`+items.map(a=>`<a class="ri" href="#a${a.n}"${cur==='a'+a.n?' aria-current="page"':''}><span class="rn">${a.n}</span><span class="rt">${hl(a.title)}</span></a>`+a.subgroups.map((sg,k)=>`<a class="ri ri-sub" href="#a${a.n}-${k+1}"${cur===`a${a.n}-${k+1}`?' aria-current="page"':''}><span class="rn"></span><span class="rt">${esc(sgShort(a,sg))}</span></a>`).join('')).join(''); });
   $('railList').innerHTML=h||`<p class="rail-empty">ไม่พบวาระที่ตรงกับ “${esc(Q)}”</p>`;
   $('railCount').textContent=Q?`${vis.size}/${D.agendas.length} วาระ`:'';
   $('railFoot').innerHTML=`<a href="#jwg"${cur==='jwg'?' aria-current="page"':''}><span>ภาพรวมระเบียบวาระ</span></a>`+
@@ -1055,7 +1128,7 @@ function viewOverview(){
     <div class="sub">${D.agendas.length} วาระ · ${esc(m.dates.replace(/^ระหว่าง/,''))}${m.asOf?` · ข้อมูล ณ ${esc(m.asOf)}`:''}</div></div>${briefBanner()}`;
   D.days.forEach(d=>{ const items=d.items.filter(a=>vis.has(a)); if(!items.length) return;
     h+=`<section class="xday"><h3>${esc(d.label)}</h3>`+items.map(a=>{ const e=execOf(a);
-      return `<a class="xrow" href="#a${a.n}"><span class="n">${a.n}</span><span><div class="t">${hl(a.title)}</div>${e.th?`<div class="s">${hl(e.th)}</div>`:''}${e.bottom?`<div class="p"><b>ไทย</b>${hl(e.bottom)}</div>`:''}</span><span class="go">›</span></a>`; }).join('')+`</section>`; });
+      return `<a class="xrow" href="#a${a.n}"><span class="n">${a.n}</span><span><div class="t">${hl(a.title)}</div>${e.th?`<div class="s">${hl(e.th)}</div>`:''}${e.bottom?`<div class="p"><b>ไทย</b>${hl(e.bottom)}</div>`:''}${(a.files||[]).length&&FOLDER.state==='ok'?`<div class="dc">เอกสาร ${a.files.length} ไฟล์</div>`:''}</span><span class="go">›</span></a>`; }).join('')+`</section>`; });
   if(!vis.size) h+=`<p class="msg info">ไม่พบวาระที่ตรงกับ “${esc(Q)}”</p>`;
   return h;
 }
@@ -1071,20 +1144,20 @@ function viewAgenda(a){
   const i=D.agendas.indexOf(a), prev=D.agendas[i-1], next=D.agendas[i+1];
   const label='วาระที่ '+a.n; const e=execOf(a);
   const dayShort=a.day.label.replace(/^วัน/,'').replace(/ที่\s*/,' ');
-  let h=`<nav class="agstrip" aria-label="เลือกวาระ">${D.agendas.map(x=>`<a href="#a${x.n}"${x===a?' aria-current="page"':''}>${x.n}</a>`).join('')}</nav><nav class="crumb"><a href="#jwg">ระเบียบวาระ</a><span>›</span><span>${esc(label)}</span></nav>
+  let h=stripHtml('a'+a.n)+`<nav class="crumb"><a href="#jwg">ระเบียบวาระ</a><span>›</span><span>${esc(label)}</span></nav>
   <header class="xhead"><div class="eyebrow">${esc(label)} · ${esc(dayShort)}</div>
     <h2 class="en-title">${hl(a.title)}</h2>${e.th?`<div class="th-title">${hl(e.th)}</div>`:''}</header>${glance(e)}`;
   if(a.subgroups.length){
     const intro=a.node.intro.filter(p=>p.text);
-    h+=`<section class="xsec"><h4>รายคณะทำงานย่อย</h4><div class="sgt-h"><span>คณะทำงานย่อย</span><span>เสนอที่ประชุม</span><span>ท่าทีไทย</span><span></span></div><div class="sgt">${a.subgroups.map((sg,k)=>sgBlock(a,sg,k,label)).join('')}</div></section>`;
+    h+=`<section class="xsec"><h4>รายคณะทำงานย่อย</h4><div class="sgt-h"><span>คณะทำงานย่อย</span><span>เสนอที่ประชุม</span><span>ท่าทีไทย</span><span></span></div><div class="sgt">${a.subgroups.map((sg,k)=>sgLink(a,sg,k)).join('')}</div><p class="sgt-hint">แตะแต่ละคณะเพื่อดูรายละเอียด หรือกดถัดไปเพื่อไล่ทีละคณะ</p></section>`;
     h+=positionBlock(a.node,label);
   } else {
     h+=factsBlock(a.node);
     if(a.node.items.length) h+=`<section class="xsec"><h4>รายการที่เสนอ</h4><div class="xitems">${a.node.items.map(it=>itemRow(it,label)).join('')}</div></section>`;
     h+=positionBlock(a.node,label);
   }
-  h+=filesBlock(a.files,'เอกสารประกอบวาระ');
-  h+=`<nav class="pager">${prev?`<a href="#a${prev.n}"><small>← วาระที่ ${prev.n}</small><span>${esc(prev.title)}</span></a>`:'<span></span>'}${next?`<a class="next" href="#a${next.n}"><small>วาระที่ ${next.n} →</small><span>${esc(next.title)}</span></a>`:'<span></span>'}</nav>`;
+  h+=docsBlock(a);
+  h+=pagerHtml('a'+a.n);
   return h;
 }
 function viewAnnex(){
@@ -1104,8 +1177,8 @@ function route(){
     sec='jwg';
     if(!D){ html=`<p class="msg err">${esc(BOOT_ERR||'ยังไม่มีบัญชีเอกสาร')}</p><p class="hint">อัปโหลดไฟล์ .docx เพื่อเริ่มต้น</p>`; }
     else{
-      const m=hsh.match(/^a(\d+)$/);
-      if(m){ const a=D.agendas.find(x=>x.n===+m[1]); if(a){ html=viewAgenda(a); cur=hsh; } }
+      const m=hsh.match(/^a(\d+)(?:-(\d+))?$/);
+      if(m){ const a=D.agendas.find(x=>x.n===+m[1]); if(a){ const sg=m[2]?a.subgroups[+m[2]-1]:null; html=sg?viewSubgroup(a,sg,+m[2]-1):viewAgenda(a); cur=sg?hsh:'a'+a.n; } }
       if(!html){ if(hsh==='annex'){ html=viewAnnex(); cur='annex'; } else if(hsh==='files'){ html=viewFiles(); cur='files'; } else if(hsh==='docs'){ html=viewDocs(); cur='docs'; } else { SPEECH=[]; html=viewOverview(); cur='jwg'; } }
     }
   }
@@ -1125,8 +1198,7 @@ function route(){
   document.addEventListener('touchstart',e=>{ if(e.touches.length!==1) return; const t=e.touches[0]; if(e.target.closest('.agstrip,.rail,.reader,.modal,.tabs')){ x0=null; return; } x0=t.clientX; y0=t.clientY; t0=Date.now(); },{passive:true});
   document.addEventListener('touchend',e=>{ if(x0===null||!D) return; const t=e.changedTouches[0]; const dx=t.clientX-x0, dy=t.clientY-y0; x0=null;
     if(Math.abs(dx)<80||Math.abs(dy)>Math.abs(dx)*0.5||Date.now()-t0>700) return;
-    const m=(location.hash||'').match(/^#a(\d+)$/); if(!m) return; const i=D.agendas.findIndex(a=>a.n===+m[1]);
-    const to=D.agendas[dx<0?i+1:i-1]; if(to) location.hash='a'+to.n; },{passive:true});
+    const to=stepHash(dx<0?1:-1); if(to) location.hash=to; },{passive:true});
 })();
 function setTopH(){ const h=$('topbar').offsetHeight; document.documentElement.style.setProperty('--topH',h+'px'); }
 window.addEventListener('resize',setTopH);
@@ -1160,10 +1232,8 @@ $('scrim').onclick=()=>document.body.classList.remove('rail-open');
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){ if(!$('reader').hidden) closeReader(); else if(!$('driveModal').hidden) $('driveModal').hidden=true; document.body.classList.remove('rail-open'); return; }
   if(/INPUT|TEXTAREA/.test((e.target.tagName||''))||e.metaKey||e.ctrlKey||e.altKey||!$('reader').hidden||!$('driveModal').hidden) return;
-  const m=(location.hash||'').match(/^#a(\d+)$/); if(!m||!D) return;
-  const i=D.agendas.findIndex(a=>a.n===+m[1]);
-  if(e.key==='ArrowRight'&&D.agendas[i+1]) location.hash='a'+D.agendas[i+1].n;
-  if(e.key==='ArrowLeft'&&D.agendas[i-1]) location.hash='a'+D.agendas[i-1].n;
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
+  const to=stepHash(e.key==='ArrowRight'?1:-1); if(to) location.hash=to;
 });
 
 /* reader */
@@ -1309,8 +1379,16 @@ async function listChildren(ids){
   }
   return out;
 }
+const FOLDER_SNAPSHOT={"folders": [{"id": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB", "title": "ข้อมูลจากหน่วยงานที่เกี่ยวข้อง", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI"}, {"id": "17fWSH1z6bTkv4Ul6hRfTDaI8NEbDiR-U", "title": "SG-HT", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}, {"id": "1MUn7sIVAq-pjjnY0O50wlQbIH02-_Tfq", "title": "09-10", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}, {"id": "10MRamHE3GjDFkhWmAR-rOwIFEZvOgEvh", "title": "12", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}, {"id": "1Ly1GC5Ec98zfleaLQTPmAEpUzPTxK8PB", "title": "SG-LLEI", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}, {"id": "1IHB6RJkbLPxWX4Cg73M3MT2ADziNg6gW", "title": "08", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}, {"id": "1bnnQAyDncQy7rZIx47O-vsW-c3ireiJX", "title": "07", "parentId": "1Dk5Yr_Nw4Fue_gyvgNn5rmYJtQmzi7qB"}], "files": [{"id": "1hGDWVlWyKXC2ZG7ITgylWka-WDWl8Li5", "title": "6.14 NBS Finalized POA on IFF.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1JErrJ4sg4riUJ4Tc7aGOecnSs6DbND6j", "title": "6.1 Report of the 10th JWG-CTTC Meeting.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "12afOMKJoocV6xx9YRn-MCVyncbs7BB1k", "title": "6.6 Finalized Plan of Action to combat Trafficking in Person.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1HL_nxq5OmO9VdX22FtX1-xUoYpjnJhy5", "title": "4. NBS_Progress made on 10th JWG-CTTC.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1TLbelzy1drQ2OtVVjUFSXVVj7yiQKgmC", "title": "6.4 Report of 4th Meeting of SG-HT.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "14PklxSFSj7PcRCbU7nTfZ3dUrlVQoybs", "title": "10. Background Note on Strengthening Regular and Real-Time Cooperation.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1Dc50xzb18iVipIx5mqx2w84eQcHK_2SN", "title": "6.8 Report of 9th Meeting of SG-NDPSPC.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "10bu2nfBYn2FpAVdYSmWtafBk8OECgY2T", "title": "6.17 NBS Human Trafficking Convention.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "12nJC_K8KDp9uTKNzYBS4qJi_yLdrcK4N", "title": "6.3 Report of 3rd Meeting of SG-HT.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1ca4UIsby5M975V3bba6obO5VgTM8bT9G", "title": "6.9 Finalized text of the BIMSTEC Plan of Action on Drug Control.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1NeoMSQbRA0WZU-2nns2kS0wDQ0fn2P_R", "title": "3. Revised Annotated Provisional Agenda for 11th JWG-CTTC.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1l3vwjywkqgHGKpMq6Md5u2MXLFLJDJl8", "title": "6.5 Finalized text of ToR of SG-HT.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1s_Nf0-UgHVw9b7-mI9JsYGhX7qQBQo3a", "title": "6.7 Report of 8th Meeting of SG-NDPSPC.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1WBqauMYD6x-6u7W-w-GAtPXYG6g1q9eF", "title": "6.21  Report of the 3rd Meeting of SG-CCRT.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1ZVDs1cIcZzrgOcLtWLIN9rTyJM3vXWiM", "title": "9. Background Note on Information Sharing Centre.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1C2oLtRSIFAPN56SKCjFJS8e4tcE389dD", "title": "6.16 Report of the 9th SG-LLEI Meeting.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "12iqTmuL2myZn32dxYHv0eSZnTZ5DY4DK", "title": "6.2 Report of 2nd Meeting of SG-HT.pdf", "parentId": "1nRCR-6FKMY--0hcB-V3IqT-JSJLjVyDI", "mimeType": "application/pdf"}, {"id": "1HCFyJPa305PbhtObC_AlNUuRHliDEAjC", "title": "Report of Preparatory Meeting of 5th NSC.pdf", "parentId": "1MUn7sIVAq-pjjnY0O50wlQbIH02-_Tfq", "mimeType": "application/pdf"}, {"id": "1qJu7-AUhoUhfyaWRMJPC1hnBzgqF5h8e", "title": "นร 0803-8794 ลว 22 ธ.ค.68 ข้อคิดเห็น SBIMSTEC (กต.).pdf", "parentId": "1Ly1GC5Ec98zfleaLQTPmAEpUzPTxK8PB", "mimeType": "application/pdf"}, {"id": "1sv8ssrwLXttuR2XNAMWofN2GBDwp2p8T", "title": "Draft Delhi Declaration_First BIMSTEC Home Ministers Meeting.pdf", "parentId": "10MRamHE3GjDFkhWmAR-rOwIFEZvOgEvh", "mimeType": "application/pdf"}, {"id": "1ufUOPey-8R3j6WGz41wn8rYRwa_Ut-W6", "title": "Thailand’s comments on the way forward in implementing.pdf", "parentId": "1bnnQAyDncQy7rZIx47O-vsW-c3ireiJX", "mimeType": "application/pdf"}, {"id": "1BDiVQjr4ulAUETPntbCQYirsbyqWSSFJ", "title": "แนวทางการอนุวัติอนุสัญญาฯ.pdf", "parentId": "1bnnQAyDncQy7rZIx47O-vsW-c3ireiJX", "mimeType": "application/pdf"}, {"id": "1EnGB1V21fdj8V3BWRGPUcm6dGeBM2VB3", "title": "เรียน สมช POA- BIMSTEC.pdf", "parentId": "17fWSH1z6bTkv4Ul6hRfTDaI8NEbDiR-U", "mimeType": "application/pdf"}, {"id": "1H_KykyhX2w-5_yACLZ9gpBDKKNlg95rU", "title": "นร 0803_3773(1).pdf", "parentId": "1IHB6RJkbLPxWX4Cg73M3MT2ADziNg6gW", "mimeType": "application/pdf"}, {"id": "1el9ssPnGMN6U8MVTTSocK1vCH8-oAnbC", "title": "14. Annex XIV_Action Matrix of the Plan of Action_Thailand.pdf", "parentId": "17fWSH1z6bTkv4Ul6hRfTDaI8NEbDiR-U", "mimeType": "application/pdf"}, {"id": "1qMI_GOZRVmYbZEqJU6Cc-bt8I5jGUHJd", "title": "พม. ข้อคิดเห็น TOR BIMSTEC.pdf", "parentId": "17fWSH1z6bTkv4Ul6hRfTDaI8NEbDiR-U", "mimeType": "application/pdf"}, {"id": "1ePQaDeOYxVlDBbigYbs0787xltWPMoXe", "title": "ด่วนมาก ที่ กต 0805 240 ลว. 30 มี.ค. 69.pdf", "parentId": "1Ly1GC5Ec98zfleaLQTPmAEpUzPTxK8PB", "mimeType": "application/pdf"}]};
+const SNAPSHOT_AT='25 ก.ย. 2569';
+function loadSnapshot(note){
+  if(FOLDER.id!==DEFAULT_FOLDER){ FOLDER.state='nomcp'; route(); return; }
+  const folders={}; FOLDER_SNAPSHOT.folders.forEach(f=>folders[f.id]={id:f.id,title:f.title,parent:f.parentId,url:'https://drive.google.com/drive/folders/'+f.id});
+  FOLDER.folders=folders; FOLDER.files=FOLDER_SNAPSHOT.files.map(f=>Object.assign({viewUrl:'https://drive.google.com/file/d/'+f.id+'/view'},f));
+  FOLDER.excluded=['0. Delegation Details']; FOLDER.state='ok'; FOLDER.snapshot=true; FOLDER.msg=note||''; matchFiles(); route();
+}
 async function loadFolder(){
-  if(!MCP){ FOLDER.state='nomcp'; route(); return; }
+  if(!MCP){ loadSnapshot(); return; }
   FOLDER.state='loading'; FOLDER.msg=''; route();
   try{
     const files=[], folders={}, excluded=[]; let level=[FOLDER.id], depth=0;
@@ -1324,9 +1402,9 @@ async function loadFolder(){
       }
       level=next; depth++;
     }
-    FOLDER.files=files; FOLDER.folders=folders; FOLDER.excluded=excluded; FOLDER.state='ok'; FOLDER.loadedAt=new Date();
+    FOLDER.files=files; FOLDER.folders=folders; FOLDER.excluded=excluded; FOLDER.state='ok'; FOLDER.snapshot=false; FOLDER.loadedAt=new Date();
     matchFiles();
-  }catch(e){ FOLDER.state='err'; FOLDER.msg=driveErrText(e); }
+  }catch(e){ if(FOLDER.id===DEFAULT_FOLDER){ loadSnapshot(driveErrText(e)); return; } FOLDER.state='err'; FOLDER.msg=driveErrText(e); }
   route();
 }
 function fileRow(x){ const f=x.f||x; return `<a class="df" href="${esc(fileLink(f))}" target="_blank" rel="noopener"><span class="df-t">${hl(fileName(f))}${x.where?`<small>${esc(x.where)}</small>`:''}${f.kind==='agency'&&f.path?`<small>${esc(f.path)}</small>`:''}</span><span class="df-x">${esc(fileExt(f))} ↗</span></a>`; }
@@ -1353,7 +1431,7 @@ function viewFiles(){
   if(FOLDER.state==='nomcp') return `<div class="fv">${head}<p class="msg info">มุมมองนี้เชื่อม Google Drive ไม่ได้ — เปิดหน้านี้ใน Claude เพื่อดูแฟ้มเอกสาร</p></div>`;
   if(FOLDER.state==='loading'||FOLDER.state==='idle') return `<div class="fv">${head}${setting}<p class="msg info">กำลังโหลดรายการไฟล์…</p></div>`;
   if(FOLDER.state==='err') return `<div class="fv">${head}${setting}<p class="msg err">${esc(FOLDER.msg)}</p></div>`;
-  let h=`<div class="fv">${head}<p class="hint">${FOLDER.files.length} ไฟล์ · โหลดเมื่อ ${esc(FOLDER.loadedAt.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}))} น. · <a href="https://drive.google.com/drive/folders/${esc(FOLDER.id)}" target="_blank" rel="noopener">เปิดโฟลเดอร์ใน Drive ↗</a></p>${setting}`;
+  let h=`<div class="fv">${head}<p class="hint">${FOLDER.files.length} ไฟล์ · ${FOLDER.snapshot?`รายการ ณ ${SNAPSHOT_AT}`:`โหลดเมื่อ ${esc(FOLDER.loadedAt.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}))} น.`} · <a href="https://drive.google.com/drive/folders/${esc(FOLDER.id)}" target="_blank" rel="noopener">เปิดโฟลเดอร์ใน Drive ↗</a></p>${FOLDER.snapshot?`<p class="hint">คลิกชื่อไฟล์เพื่อเปิดใน Google Drive ต้องใช้บัญชี Google ที่ได้รับสิทธิ์เข้าโฟลเดอร์นี้</p>`:setting}`;
   D.agendas.forEach(a=>{ if(!(a.files||[]).length) return;
     h+=`<section class="fv-sec"><h3><a href="#a${a.n}">วาระ ${a.n}</a> <span style="font-family:var(--f-en);font-weight:400">${esc(a.title)}</span></h3><div class="dblock">${fileGroups(a.files)}</div></section>`; });
   if(FOLDER.unmatched.length) h+=`<section class="fv-sec"><h3>ยังจับคู่กับวาระไม่ได้</h3><p class="hint" style="margin-bottom:6px">ตั้งชื่อไฟล์ขึ้นต้นด้วยเลขวาระ (เช่น “6.14 …”, “10. …”) หรือเก็บในโฟลเดอร์ย่อยชื่อเลขวาระ/ชื่อย่อคณะทำงาน (เช่น “07”, “09-10”, “SG-HT”) เพื่อให้จับคู่อัตโนมัติ</p><div class="dblock"><div class="dgrp">${FOLDER.unmatched.map(f=>fileRow({f})).join('')}</div></div></section>`;
@@ -1569,7 +1647,7 @@ document.addEventListener('click',e=>{ const b=e.target.closest('[data-copytext]
       if(MCP){ $('driveBtn').hidden=false; if(SRC.kind==='drive') $('reloadBtn').hidden=false; }
     }
   }catch(e){ MCP=null; }
-  if(MCP) loadFolder(); else { FOLDER.state='nomcp'; }
+  if(MCP) loadFolder(); else loadSnapshot();
 })();
 })();
 </script>
