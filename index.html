@@ -693,12 +693,43 @@ a.sgl .chev{margin-top:3px}
 .fs-tl{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px 14px;font-size:14.5px}
 .fs-tl b{font-family:var(--f-mono);font-weight:500;font-size:12.5px;color:var(--gold);padding-top:3px}
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
-.fact{display:grid;grid-template-columns:minmax(0,1fr);padding:10px 0;border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:2px;padding:10px 0;border-top:1px solid var(--line)}
 .fact b{font-family:var(--f-en);font-weight:500;font-size:16.5px;color:var(--accent)}
 .fact span{font-size:14.5px;color:var(--ink-2)}
 .fs-sep{display:flex;align-items:center;gap:12px;margin:30px 0 16px;color:var(--gold);font-size:13px}
 .fs-sep::after{content:"";flex:1;height:1px;background:var(--gold);opacity:.45}
 @media (max-width: 699px){ .fs-band{grid-template-columns:repeat(2,minmax(0,1fr))} .fs-band div:nth-child(3){border-left:0} .fs-band div:nth-child(n+3){border-top:1px solid var(--line)} .facts{grid-template-columns:minmax(0,1fr)} .fs-tl{grid-template-columns:88px minmax(0,1fr)} }
+#wx{scroll-margin-top:calc(var(--toph,120px) + 12px)}
+.wx-lead{margin:0 0 12px;font-size:14.5px;color:var(--muted)}
+.wx-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin:4px 0 16px}
+.wx-sum div{padding:14px 16px}.wx-sum div+div{border-left:1px solid var(--line)}
+.wx-sum small{display:block;font-size:12px;color:var(--gold)}
+.wx-sum b{display:block;font-family:var(--f-en);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.wx-sum span{font-size:13.5px;color:var(--muted)}
+.wx-list{border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.wx-day{display:grid;grid-template-columns:190px 170px minmax(0,1fr) 220px;gap:18px;align-items:center;padding:16px 18px}
+.wx-day+.wx-day{border-top:1px solid var(--line)}
+.wx-day.today{background:var(--accent-soft)}
+.wx-day.away{opacity:.62}
+.wx-date b{display:block;font-family:var(--f-en);font-weight:500;font-size:18px}
+.wx-date span{font-size:13px;color:var(--muted)}
+.wx-tag span{display:block;font-size:14px;color:var(--ink)}
+.wx-tag small{display:block;font-size:13px;color:var(--gold)}
+.wx-tag .today-pill{display:inline-block;margin-top:4px}
+.wx-cond{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.wx-ic{width:34px;height:34px}.wx-ic.sun{color:var(--gold)}.wx-ic.rain{color:var(--accent)}
+.wx-cond b{display:block;font-size:15.5px;font-weight:500}
+.wx-cond small{display:block;font-size:13px;color:var(--muted)}
+.wx-cond p{margin:4px 0 0;font-size:13.5px;color:var(--ink-2)}
+.wx-cond p.wx-away{color:var(--muted)}
+.wx-temp{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:8px;align-items:center;font-variant-numeric:tabular-nums}
+.wx-temp .t{font-family:var(--f-en);font-size:17px}.wx-temp .lo{color:var(--muted);text-align:right}
+.wx-temp .bar{position:relative;height:6px;border-radius:3px;background:var(--surface-2)}
+.wx-temp .bar i{position:absolute;top:0;bottom:0;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.wx-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 18px;margin-top:12px;font-size:13px;color:var(--muted)}
+.wx-links{display:flex;flex-wrap:wrap;gap:6px 16px}.wx-links a{color:var(--accent);text-decoration:none}
+@media (max-width: 1100px){ .wx-day{grid-template-columns:200px minmax(0,1fr) 170px} .wx-tag{grid-column:1;grid-row:2} .wx-cond{grid-column:2;grid-row:1/3} .wx-temp{grid-column:3;grid-row:1/3} .wx-day{row-gap:4px} }
+@media (max-width: 699px){ .wx-sum{grid-template-columns:minmax(0,1fr)} .wx-sum div+div{border-left:0;border-top:1px solid var(--line)} .wx-day{grid-template-columns:minmax(0,1fr) auto;gap:8px 12px} .wx-date{grid-column:1;grid-row:1} .wx-tag{grid-column:2;grid-row:1;text-align:right} .wx-cond{grid-column:1/-1;grid-row:2} .wx-temp{grid-column:1/-1;grid-row:3;grid-template-columns:34px minmax(0,1fr) 34px} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
 </style>
 </head>
@@ -1224,7 +1255,8 @@ const TRIP_VIEWS={'':()=>viewHome(),'schedule':()=>viewSchedule(),'delegation':(
 function route(){
   const hsh=(location.hash||'').replace(/^#/,'');
   let html, cur='', sec;
-  if(hsh in TRIP_VIEWS){ sec=hsh||'home'; html=TRIP_VIEWS[hsh](); }
+  if(hsh==='weather'){ sec='travel'; html=viewTravel(); }
+  else if(hsh in TRIP_VIEWS){ sec=hsh||'home'; html=TRIP_VIEWS[hsh](); }
   else{
     sec='jwg';
     if(!D){ html=`<p class="msg err">${esc(BOOT_ERR||'ยังไม่มีบัญชีเอกสาร')}</p><p class="hint">อัปโหลดไฟล์ .docx เพื่อเริ่มต้น</p>`; }
@@ -1240,7 +1272,7 @@ function route(){
   $('view').classList.toggle('wide',sec!=='jwg');
   document.querySelectorAll('#tabs a').forEach(a=>{ if(a.dataset.sec===sec) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
   closeGloss(); $('view').innerHTML=html; if(sec!=='home'&&hsh!=='glossary') applyGloss($('view')); if(D&&sec==='jwg') renderRail(cur);
-  if(lastRoute!==hsh){ window.scrollTo(0,0); lastRoute=hsh; }
+  if(lastRoute!==hsh){ window.scrollTo(0,0); lastRoute=hsh; if(hsh==='weather'){ const w=document.getElementById('wx'); if(w) w.scrollIntoView(); } }
   document.body.classList.remove('rail-open');
   setTopH();
   const cur2=document.querySelector('.agstrip [aria-current]'); if(cur2){ try{ cur2.scrollIntoView({inline:'center',block:'nearest'}); }catch(e){} }
@@ -1602,7 +1634,7 @@ function viewHome(){
   const menu=[
     ['#schedule','1','Schedule','กำหนดการ','Flights, activities and meeting days'],
     ['#delegation','2','Delegation','รายชื่อคณะเดินทาง',`${TRIP.people.length} members · ONSC and MFA`],
-    ['#travel','3','Travel India','ข้อมูลสำคัญของประเทศอินเดีย','Entry, weather, attire and contacts'],
+    ['#travel','3','Travel India','ข้อมูลสำคัญของประเทศอินเดีย','Facesheet, weather forecast, entry and contacts'],
     ['#jwg','4','JWG-CTTC','ระเบียบวาระ สาระสำคัญ และท่าทีไทย',D?`${A.length} agenda items · positions and statements`:'Meeting agenda']
   ];
   return `<div class="cover">
@@ -1646,21 +1678,32 @@ function viewDelegation(){
 function contactRow(c){ return `<div class="contact"><span class="cn">${esc(c.name)}</span><span class="cr">${esc(c.role)}</span><span class="cv">${c.tel?`<span>${esc(c.tel)}</span><button class="cp" type="button" data-copytext="${esc(c.tel)}">คัดลอก</button>`:''}${c.mail?`<span>${esc(c.mail)}</span><button class="cp" type="button" data-copytext="${esc(c.mail)}">คัดลอก</button>`:''}</span></div>`; }
 function facesheet(){
   const facts=[
-    ['Most populous','ประเทศที่มีประชากรมากที่สุดในโลก แซงจีนตั้งแต่ปี 2566 ตามการประมาณการของสหประชาชาติ'],
-    ['Satyameva Jayate','คำขวัญประจำชาติ แปลว่า “ความจริงเท่านั้นที่ชนะ” อยู่ใต้ตราแผ่นดินรูปสิงห์สี่หน้าของพระเจ้าอโศก'],
-    ['24 spokes','กงล้อธรรมจักรกลางธงชาติมี 24 ซี่ มาจากเสาอโศก ธงชาติจึงมีรากร่วมกับพุทธศาสนา'],
-    ['22 languages','รัฐธรรมนูญรับรองภาษาไว้ 22 ภาษา ภาษาราชการของรัฐบาลกลางคือฮินดีและอังกฤษ'],
-    ['Bodh Gaya','พุทธคยา รัฐพิหาร สถานที่ตรัสรู้ของพระพุทธเจ้า เป็นมรดกโลก และมีวัดไทยตั้งอยู่'],
-    ['Ramayana','รามายณะของอินเดียเป็นต้นเรื่องของรามเกียรติ์ มรดกทางวัฒนธรรมที่ไทยกับอินเดียมีร่วมกัน'],
+    ['Most populous','ประเทศที่มีประชากรมากที่สุดในโลก สหประชาชาติประมาณการว่าแซงจีนในเดือนเมษายน 2566'],
+    ['Satyameva Jayate','คำขวัญประจำชาติ แปลว่า “ความจริงเท่านั้นที่ชนะ” มาจากมุณฑกอุปนิษัท จารึกใต้ตราแผ่นดินซึ่งจำลองจากหัวเสาสิงห์ของพระเจ้าอโศกที่สารนาถ'],
+    ['24 spokes','ธรรมจักรสีน้ำเงินกลางธงชาติมี 24 ซี่ ออกแบบตามกงล้อบนหัวเสาสิงห์ของพระเจ้าอโศกที่สารนาถ'],
+    ['22 languages','บัญชีที่ 8 ท้ายรัฐธรรมนูญรับรองภาษาไว้ 22 ภาษา ภาษาราชการของรัฐบาลกลางคือฮินดี และใช้ภาษาอังกฤษควบคู่'],
+    ['Bodh Gaya','พุทธคยา รัฐพิหาร สถานที่ตรัสรู้ของพระพุทธเจ้า ขึ้นทะเบียนเป็นมรดกโลกเมื่อปี 2545 และเป็นที่ตั้งของวัดไทยพุทธคยา'],
+    ['Ramayana','รามเกียรติ์คือรามายณะฉบับไทยที่ชำระขึ้นในรัชกาลที่ 1 และเป็นรากของนาฏศิลป์ ดนตรี และจิตรกรรมไทยจำนวนมาก'],
     ['3 World Heritage sites','กรุงเดลีมีมรดกโลก 3 แห่ง: สุสานหุมายูน (อยู่ในกำหนดการ 27 ก.ย.) กุตุบมีนาร์ และป้อมแดง'],
-    ['Sushma Swaraj Bhawan','สถานที่ประชุม ตั้งชื่อตามอดีตรัฐมนตรีว่าการกระทรวงการต่างประเทศอินเดีย เดิมชื่อ Pravasi Bharatiya Kendra']
+    ['Sushma Swaraj Bhawan','สถานที่ประชุม เดิมชื่อ Pravasi Bharatiya Kendra กระทรวงการต่างประเทศอินเดียเปลี่ยนชื่อเมื่อ ก.พ. 2563 เพื่อรำลึกถึงอดีตรัฐมนตรีว่าการกระทรวงการต่างประเทศ']
   ];
+  const ties=[
+    ['From BIST-EC to BIMSTEC','เริ่มจาก 4 ประเทศ (บังกลาเทศ อินเดีย ศรีลังกา ไทย) ในชื่อ BIST-EC เมื่อ 6 มิ.ย. 2540 เมียนมาเข้าร่วม 22 ธ.ค. 2540 เนปาลและภูฏานเข้าร่วม ก.พ. 2547 และใช้ชื่อปัจจุบันตั้งแต่การประชุมสุดยอดครั้งที่ 1 เมื่อ 31 ก.ค. 2547'],
+    ['1.8 billion people','ประเทศสมาชิก 7 ประเทศมีประชากรรวมกว่า 1,800 ล้านคน และ GDP รวมกว่า 4.5 ล้านล้านดอลลาร์สหรัฐ เป็นสะพานเชื่อมเอเชียใต้กับเอเชียตะวันออกเฉียงใต้'],
+    ['Bangkok bookends','กรุงเทพฯ เป็นที่ลงนามปฏิญญาก่อตั้ง (2540) และเป็นเจ้าภาพทั้งการประชุมสุดยอดครั้งที่ 1 (2547) และครั้งที่ 6 (2568)'],
+    ['Suvarnabhumi','ราว 2,000 ปีก่อน พระเจ้าอโศกส่งสมณทูตมาเผยแผ่พุทธศาสนายังสุวรรณภูมิ ถือเป็นจุดเริ่มต้นความสัมพันธ์ไทย–อินเดีย'],
+    ['Lumbini','สถานที่ประสูติของพระพุทธเจ้าอยู่ที่ลุมพินี ประเทศเนปาล ขึ้นทะเบียนมรดกโลกปี 2540 มีเสาศิลาที่พระเจ้าอโศกทรงสร้างไว้เมื่อเสด็จมาสักการะ'],
+    ['Songkran','คำว่าสงกรานต์มาจากภาษาสันสกฤต แปลว่าการเคลื่อนย้าย หมายถึงดวงอาทิตย์ย้ายเข้าราศีเมษตามระบบสุริยคติที่มีรากจากอารยธรรมเอเชียใต้ UNESCO ขึ้นทะเบียนสงกรานต์ในไทยเป็นมรดกทางวัฒนธรรมที่จับต้องไม่ได้เมื่อปี 2566'],
+    ['Pali & Sanskrit','ภาษาบาลีเป็นภาษาทางศาสนาของไทย และคำไทยจำนวนมากมีรากศัพท์จากภาษาบาลีและสันสกฤต'],
+    ['Holy Relics 2024','ปี 2567 อินเดียอัญเชิญพระบรมสารีริกธาตุและพระธาตุพระอัครสาวก 2 องค์มาให้สักการะในไทย 26 วัน ที่กรุงเทพฯ เชียงใหม่ อุบลราชธานี และกระบี่ มีผู้มาสักการะกว่า 4 ล้านคน']
+  ];
+  const grid=a=>`<div class="facts">${a.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>`;
   return `<section class="fs">
   <div class="fs-head"><div class="fs-eyebrow">Facesheet</div><h3 class="fs-title">Republic of India<span class="bi-i">ข้อมูลพื้นฐานสาธารณรัฐอินเดีย</span></h3></div>
   <div class="fs-band">
-    <div><small>Population · ประชากร</small><b>1,477 ล้าน</b><span>ปี 2568</span></div>
-    <div><small>GDP growth · เศรษฐกิจ</small><b>7.3%</b><span>ปี 2568 · คาด 6.4% ปี 2569</span></div>
-    <div><small>GDP per capita</small><b>US$2,818</b><span>ปี 2568</span></div>
+    <div><small>Population · ประชากร</small><b>1,464 ล้าน</b><span>ปี 2568</span></div>
+    <div><small>GDP growth · เศรษฐกิจ</small><b>7.7%</b><span>ปีงบ 2568 · คาด 6.4% ปีงบ 2569</span></div>
+    <div><small>GDP per capita</small><b>US$2,675</b><span>ปีงบ 2568</span></div>
     <div><small>Trade with Thailand</small><b>US$21.8 bn</b><span>ปี 2568 · +25.0%</span></div>
   </div>
   <div class="cards">
@@ -1679,24 +1722,70 @@ function facesheet(){
       <dt>รมว. ต่างประเทศ</dt><dd>Dr. S. Jaishankar</dd>
       <dt>ที่ปรึกษาด้านความมั่นคงแห่งชาติ</dt><dd>Shri Ajit Doval</dd></dl></div>
     <div class="card"><h3>Thailand – India<span class="bi-i">ความสัมพันธ์ไทย–อินเดีย</span></h3><div class="fs-tl">
-      <b>1 ส.ค. 2490</b><span>สถาปนาความสัมพันธ์ทางการทูต</span>
+      <b>1 ส.ค. 2490</b><span>สถาปนาความสัมพันธ์ทางการทูต ก่อนอินเดียได้รับเอกราช 15 วัน</span>
       <b>3 เม.ย. 2568</b><span>ยกระดับเป็นหุ้นส่วนเชิงยุทธศาสตร์ ระหว่างการเยือนไทยของนายกรัฐมนตรีโมดีและการประชุมสุดยอด BIMSTEC ครั้งที่ 6 ที่กรุงเทพฯ</span>
-      <b>ปี 2568</b><span>อินเดียเป็นคู่ค้าอันดับ 7 ของไทย · ไทยส่งออก US$15,820 ล้าน นำเข้า US$6,003 ล้าน</span></div></div>
+      <b>ปี 2568</b><span>การค้ารวม US$21,823 ล้าน (+25.0%) · อินเดียเป็นตลาดส่งออกอันดับ 7 ของไทยและอันดับ 1 ในเอเชียใต้ · ไทยส่งออก US$15,820 ล้าน นำเข้า US$6,003 ล้าน</span></div></div>
     <div class="card"><h3>India in BIMSTEC<span class="bi-i">อินเดียใน BIMSTEC</span></h3><dl class="kv">
       <dt>สถานะ</dt><dd>ประเทศผู้ก่อตั้ง (ปฏิญญากรุงเทพฯ 6 มิ.ย. 2540)</dd>
       <dt>บทบาทนำ</dt><dd>สาขาความมั่นคง ครอบคลุมการต่อต้านการก่อการร้ายและอาชญากรรมข้ามชาติ การจัดการภัยพิบัติ และความมั่นคงทางพลังงาน</dd>
       <dt>กฎบัตร BIMSTEC</dt><dd>มีผลใช้บังคับ 20 พ.ค. 2567</dd>
       <dt>ประธานปัจจุบัน</dt><dd>บังกลาเทศ</dd></dl></div>
     <div class="card full"><h3>Did you know?<span class="bi-i">เกร็ดความรู้เกี่ยวกับอินเดีย</span></h3>
-      <div class="facts">${facts.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div></div>
+      ${grid(facts)}</div>
+    <div class="card full"><h3>Bay of Bengal ties<span class="bi-i">BIMSTEC และวัฒนธรรมร่วม</span></h3>
+      ${grid(ties)}</div>
   </div></section>`;
+}
+
+/* ---------- Weather (snapshot of IMD city forecast) ---------- */
+const WX={
+  issued:'2026-09-26', station:'New Delhi (Safdarjung)',
+  imd:'https://city.imd.gov.in/citywx/city_weather_test_try_warnings.php?id=42182',
+  tmd:'https://www.tmd.go.th/forecast/sevenday',
+  days:[
+    {d:'2026-09-26',min:23,max:33,k:'rain',en:'Generally cloudy, moderate rain',th:'มีเมฆมาก ฝนปานกลาง',tag:['Day before','ก่อนเดินทาง 1 วัน'],note:'อาจมีฝนฟ้าคะนอง ลมกระโชก 30–40 กม./ชม. บางช่วงถึง 50 กม./ชม.'},
+    {d:'2026-09-27',min:22,max:31,k:'rain',en:'Generally cloudy, moderate rain',th:'มีเมฆมาก ฝนปานกลาง',tag:['Arrive New Delhi','เดินทางถึงนิวเดลี'],note:'อาจมีฝนฟ้าคะนอง 2 ช่วง ลมกระโชก 30–40 กม./ชม. บางช่วงถึง 50 กม./ชม.'},
+    {d:'2026-09-28',min:22,max:32,k:'light',en:'Generally cloudy, light rain',th:'มีเมฆมาก ฝนเล็กน้อย',tag:['Meeting day 1','ประชุมวันที่ 1'],note:'ฝนมีโอกาสตกช่วงเช้ามืด'},
+    {d:'2026-09-29',min:23,max:33,k:'clear',en:'Mainly clear sky',th:'ท้องฟ้าโปร่งเป็นส่วนใหญ่',tag:['Meeting day 2 · Depart','ประชุมวันที่ 2 และเดินทางกลับ'],note:'เที่ยวบินกลับ TG 316 ออกจากนิวเดลี 23:30 น.'},
+    {d:'2026-09-30',min:24,max:34,k:'clear',en:'Mainly clear sky',th:'ท้องฟ้าโปร่งเป็นส่วนใหญ่',tag:['Back in Bangkok','ถึงกรุงเทพฯ 05:25 น.'],note:'',away:1},
+    {d:'2026-10-01',min:24,max:34,k:'clear',en:'Mainly clear sky',th:'ท้องฟ้าโปร่งเป็นส่วนใหญ่',tag:['Day after','หลังเดินทาง 1 วัน'],note:'',away:1}
+  ]
+};
+function wxIcon(k){
+  const cloud='<path d="M9 21h14a5 5 0 0 0 .6-9.96A7 7 0 0 0 10.2 13 4 4 0 0 0 9 21Z"/>';
+  if(k==='clear') return '<svg class="wx-ic sun" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="16" r="5.5"/><path d="M16 3.5v3M16 25.5v3M3.5 16h3M25.5 16h3M7.2 7.2l2.1 2.1M22.7 22.7l2.1 2.1M7.2 24.8l2.1-2.1M22.7 9.3l2.1-2.1"/></svg>';
+  const drops=k==='rain'?'<path d="M11 24.5l-1.5 3M16 24.5l-1.5 3M21 24.5l-1.5 3"/>':'<path d="M13 24.5l-1 2M19 24.5l-1 2"/>';
+  return `<svg class="wx-ic rain" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${cloud.replace('21h','20h').replace('0 0 9 21','0 0 9 20')}${drops}</svg>`;
+}
+function weatherBlock(){
+  const lo=Math.min(...WX.days.map(x=>x.min))-2, hi=Math.max(...WX.days.map(x=>x.max))+2, pct=v=>((v-lo)/(hi-lo)*100).toFixed(1);
+  const todayIN=new Date().toLocaleDateString('en-CA',{timeZone:TZ_IN});
+  const iss=fmtD(WX.issued+'T09:00:00+05:30',TZ_IN);
+  return `<div class="fs-sep" id="wx"><span>Weather forecast · พยากรณ์อากาศ</span></div>
+  <p class="wx-lead">กรุงนิวเดลี สถานี ${esc(WX.station)} · 26 กันยายน – 1 ตุลาคม 2569 ครอบคลุมก่อนและหลังการเดินทางอย่างละ 1 วัน</p>
+  <div class="wx-sum">
+    <div><small>Rain · ฝน</small><b>26–28 Sep</b><span>มีฝนช่วงวันเดินทางถึงและวันประชุมแรก เตรียมร่มพับ</span></div>
+    <div><small>Clearing · ฟ้าโปร่ง</small><b>29 Sep →</b><span>ฟ้าโปร่งตั้งแต่วันประชุมที่ 2 เป็นต้นไป</span></div>
+    <div><small>Temperature · อุณหภูมิ</small><b>22–34°C</b><span>ร้อนชื้นกลางวัน เย็นลงเล็กน้อยช่วงฝนตก</span></div>
+  </div>
+  <div class="wx-list">${WX.days.map(x=>{
+    const dt=new Date(x.d+'T12:00:00+05:30');
+    const en=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getUTCDay()]+' '+dt.getUTCDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][dt.getUTCMonth()];
+    return `<article class="wx-day${x.away?' away':''}${x.d===todayIN?' today':''}">
+      <div class="wx-date"><b>${esc(en)}</b><span>${esc(fmtD(x.d+'T12:00:00+05:30',TZ_IN))}</span></div>
+      <div class="wx-tag"><span>${esc(x.tag[0])}</span><small>${esc(x.tag[1])}</small>${x.d===todayIN?'<span class="today-pill">วันนี้</span>':''}</div>
+      <div class="wx-cond">${wxIcon(x.k)}<div><b>${esc(x.th)}</b><small>${esc(x.en)}</small>${x.note?`<p>${esc(x.note)}</p>`:''}${x.away?'<p class="wx-away">คณะเดินทางกลับถึงไทยแล้ว</p>':''}</div></div>
+      <div class="wx-temp"><span class="t lo">${x.min}°</span><span class="bar" role="img" aria-label="ต่ำสุด ${x.min} สูงสุด ${x.max} องศาเซลเซียส"><i style="left:${pct(x.min)}%;right:${(100-pct(x.max)).toFixed(1)}%"></i></span><span class="t hi">${x.max}°</span></div>
+    </article>`; }).join('')}</div>
+  <div class="wx-foot"><span>พยากรณ์ของกรมอุตุนิยมวิทยาอินเดีย (IMD) ฉบับ${esc(iss)} ตัวเลขอาจเปลี่ยนตามฉบับล่าสุด</span>
+    <span class="wx-links"><a href="${WX.imd}" target="_blank" rel="noopener">IMD New Delhi ฉบับล่าสุด ↗</a><a href="${WX.tmd}" target="_blank" rel="noopener">กรุงเทพฯ · กรมอุตุนิยมวิทยา ↗</a></span></div>`;
 }
 function viewTravel(){
   const h=TRIP.hotel, out=TRIP.flights[0], v=TRIP.venue;
   const open=new Date(new Date(out.arr).getTime()-72*3600e3).toISOString();
   const groups={}; TRIP.hostContacts.forEach(c=>(groups[c.grp]=groups[c.grp]||[]).push(c));
   const map=q=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">แผนที่ ↗</a>`;
-  return `<div class="sec-title"><span class="num">3</span><h2 class="h2">Travel India<span class="bi">ข้อมูลสำคัญของประเทศอินเดีย</span></h2></div>${facesheet()}<div class="fs-sep"><span>Travel essentials · ข้อมูลการเดินทาง</span></div>
+  return `<div class="sec-title"><span class="num">3</span><h2 class="h2">Travel India<span class="bi">ข้อมูลสำคัญของประเทศอินเดีย</span></h2></div>${facesheet()}${weatherBlock()}<div class="fs-sep"><span>Travel essentials · ข้อมูลการเดินทาง</span></div>
   <div class="cards">
     <div class="card"><h3>Entry<span class="bi-i">การเข้าเมือง</span></h3>
       <p><b>ยกเว้นการตรวจลงตรา</b> สำหรับผู้ถือหนังสือเดินทางทูตและราชการของไทย พำนักได้ไม่เกิน 90 วัน (ความตกลงลงนาม 9 ต.ค. 2546 มีผล 1 มี.ค. 2547)</p>
