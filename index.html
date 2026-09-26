@@ -665,6 +665,40 @@ a.sgl .chev{margin-top:3px}
 .gl-sw{white-space:nowrap;font-size:14px;color:var(--ink-2);cursor:pointer}
 .gl-sw input{accent-color:var(--accent);vertical-align:-2px}
 @media (max-width: 699px){ .gl-grid{grid-template-columns:minmax(0,1fr)} }
+
+.bi{display:block;font-family:var(--f-th);font-size:.52em;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:.25em;line-height:1.4}
+.bi-i{font-family:var(--f-th);font-weight:400;font-size:.8em;color:var(--muted);margin-left:.5em;letter-spacing:0}
+.h1-th{font-family:var(--f-disp);font-size:clamp(17px,2vw,21px);color:var(--ink-2);margin:-.2em 0 .5em}
+.hero h1{font-family:var(--f-en);font-weight:500}
+.mi b{font-family:var(--f-en)}
+.mi .mi-th{display:block;font-size:14.5px;color:var(--ink-2);margin-top:1px}
+.tb2{display:inline-flex;flex-direction:column;line-height:1.2}
+.tb2 small{font-size:11.5px;color:var(--muted);font-weight:400}
+.tabs a[aria-current="page"] .tb2 small{color:var(--gold)}
+.day-top .tag.en{font-family:var(--f-en);font-size:13.5px}
+.sec-title{align-items:flex-start}
+.sec-title .num{margin-top:6px}
+.h2 .bi{font-size:.6em}
+
+.fs{margin:6px 0 10px}
+.fs-head{margin-bottom:12px}
+.fs-eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.fs-title{font-family:var(--f-en);font-weight:500;font-size:26px;margin:.1em 0 0}
+.fs-band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:14px}
+.fs-band div{padding:14px 16px}
+.fs-band div+div{border-left:1px solid var(--line)}
+.fs-band small{display:block;font-size:12px;color:var(--gold)}
+.fs-band b{display:block;font-family:var(--f-en);font-size:24px;font-weight:500;line-height:1.25;font-variant-numeric:tabular-nums}
+.fs-band span{font-size:13px;color:var(--muted)}
+.fs-tl{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px 14px;font-size:14.5px}
+.fs-tl b{font-family:var(--f-mono);font-weight:500;font-size:12.5px;color:var(--gold);padding-top:3px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.fact{display:grid;grid-template-columns:minmax(0,1fr);padding:10px 0;border-top:1px solid var(--line)}
+.fact b{font-family:var(--f-en);font-weight:500;font-size:16.5px;color:var(--accent)}
+.fact span{font-size:14.5px;color:var(--ink-2)}
+.fs-sep{display:flex;align-items:center;gap:12px;margin:30px 0 16px;color:var(--gold);font-size:13px}
+.fs-sep::after{content:"";flex:1;height:1px;background:var(--gold);opacity:.45}
+@media (max-width: 699px){ .fs-band{grid-template-columns:repeat(2,minmax(0,1fr))} .fs-band div:nth-child(3){border-left:0} .fs-band div:nth-child(n+3){border-top:1px solid var(--line)} .facts{grid-template-columns:minmax(0,1fr)} .fs-tl{grid-template-columns:88px minmax(0,1fr)} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
 </style>
 </head>
@@ -678,7 +712,7 @@ a.sgl .chev{margin-top:3px}
   <div class="brand">
     <b id="brandTitle">JWG-CTTC Mission Hub</b>
     <small class="src jwg-only" id="srcLine" data-kind="embed"><i></i><span id="srcText">กำลังเปิด…</span></small>
-    <small class="trip-only" id="tripLine">นิวเดลี · 27–30 กันยายน 2569</small>
+    <small class="trip-only" id="tripLine">New Delhi · 27–30 September 2026</small>
   </div>
   <button class="btn jwg-only" id="reloadBtn" hidden title="ดึงฉบับล่าสุดของไฟล์นี้จาก Google Drive"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 10a6 6 0 1 1-2-4.5M16 3v4h-4"/></svg><span class="lbl-wide">ดึงฉบับล่าสุด</span></button>
   <button class="btn jwg-only" id="driveBtn" hidden><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3h6l5 9-3 5H5l-3-5 5-9Z"/><path d="M7 3l5 9h6M2 12h10l-3 5"/></svg><span class="lbl-wide">Google Drive</span></button>
@@ -686,10 +720,10 @@ a.sgl .chev{margin-top:3px}
   <input type="file" id="fileIn" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
  </div>
  <nav class="tabs" id="tabs" aria-label="ส่วนของเอกสาร">
-  <a href="#schedule" data-sec="schedule"><span class="tn">1</span>กำหนดการ</a>
-  <a href="#delegation" data-sec="delegation"><span class="tn">2</span>รายชื่อคณะเดินทาง</a>
-  <a href="#travel" data-sec="travel"><span class="tn">3</span>Travel India</a>
-  <a href="#jwg" data-sec="jwg"><span class="tn">4</span>JWG-CTTC</a>
+  <a href="#schedule" data-sec="schedule"><span class="tn">1</span><span class="tb2">Schedule<small>กำหนดการ</small></span></a>
+  <a href="#delegation" data-sec="delegation"><span class="tn">2</span><span class="tb2">Delegation<small>รายชื่อคณะเดินทาง</small></span></a>
+  <a href="#travel" data-sec="travel"><span class="tn">3</span><span class="tb2">Travel India<small>ข้อมูลอินเดีย</small></span></a>
+  <a href="#jwg" data-sec="jwg"><span class="tn">4</span><span class="tb2">JWG-CTTC<small>ระเบียบวาระ</small></span></a>
  </nav>
 </header>
 
@@ -1036,7 +1070,7 @@ function speechBlock(texts,label,title){
 function speechTexts(ps){ return ps.flatMap(p=>p.text.split('\n').map(s=>s.trim()).filter(Boolean)); }
 function glance(e){
   const box=(k,v,cls)=>v?`<div class="${cls||''}"><small>${k}</small><p>${hl(v)}</p></div>`:'';
-  const h=box('ที่ประชุมจะพิจารณา',e.consider)+box('ท่าทีไทยโดยสรุป',e.bottom,'bl')+box('ผลต่อเนื่อง',e.next);
+  const h=box('At issue · ที่ประชุมจะพิจารณา',e.consider)+box('Thai position · ท่าทีไทยโดยสรุป',e.bottom,'bl')+box('Follow-up · ผลต่อเนื่อง',e.next);
   const n=[e.consider,e.bottom,e.next].filter(Boolean).length;
   return n?`<div class="glance g${n}">${h}</div>`:'';
 }
@@ -1046,12 +1080,12 @@ function factsBlock(nd){
   if(intro.length) h+=intro.map(paraHtml).join('');
   nd.sections.filter(s=>!isPos(s)&&s.kind!=='note'&&s.paras.length).forEach(s=>{ h+=`<div class="xsub">${hl(s.title)}</div>`+s.paras.map(paraHtml).join(''); });
   nd.sections.filter(s=>s.kind==='note').forEach(s=>{ h+=`<p class="xnote">${hl(s.text)}</p>`; });
-  return h?`<section class="xsec"><h4>สาระสำคัญ</h4><div class="xbody">${h}</div></section>`:'';
+  return h?`<section class="xsec"><h4>Key points<span class="bi-i">สาระสำคัญ</span></h4><div class="xbody">${h}</div></section>`:'';
 }
 function positionBlock(nd,label,title){
   const secs=positionOf(nd); const th=posThai(secs), sp=speechTexts(posSpeech(secs));
   if(!th.length&&!sp.length) return '';
-  return `<section class="xsec xpos"><h4>ท่าทีไทย</h4>${th.length?`<div class="xbody">${th.map(paraHtml).join('')}</div>`:''}${speechBlock(sp,label,title)}</section>`;
+  return `<section class="xsec xpos"><h4>Thai position<span class="bi-i">ท่าทีไทย</span></h4>${th.length?`<div class="xbody">${th.map(paraHtml).join('')}</div>`:''}${speechBlock(sp,label,title)}</section>`;
 }
 const folderUrl=()=>'https://drive.google.com/drive/folders/'+FOLDER.id;
 function filesBlock(list,title){
@@ -1064,7 +1098,7 @@ function docsBlock(a,files,noneText){
   const key=x=>{ const m=toArabic(x.f.title||'').match(/^\s*(\d+)(?:\.(\d+))?/); return (x.f.kind==='agency'?1e6:0)+(m?(+m[1])*1000+(+(m[2]||0)):9e5); };
   list.sort((x,y)=>key(x)-key(y));
   const row=x=>{ const f=x.f; return `<a class="xdoc" href="${esc(fileLink(f))}" target="_blank" rel="noopener"><span class="xdoc-i">${esc(fileExt(f))}</span><span class="xdoc-t">${hl(fileName(f))}${f.kind==='agency'?'<small>ข้อมูลจากหน่วยงาน</small>':''}</span><span class="xdoc-go">เปิด ↗</span></a>`; };
-  return `<section class="xsec xdocs"><h4>เอกสารใน Google Drive<a class="xdocs-all" href="${esc(folderUrl())}" target="_blank" rel="noopener">แฟ้มทั้งหมด ↗</a></h4>${!list.length?`<p class="xdoc-none">${noneText||'ไม่มีเอกสารเฉพาะสำหรับวาระนี้'}</p>`:(!files&&a.subgroups.length&&list.length>6)?`<details class="xdocs-more"><summary>แสดงเอกสารทั้ง ${list.length} ไฟล์ของวาระนี้ (เอกสารของแต่ละคณะอยู่ในหน้าคณะทำงานย่อย)</summary><div class="xdoc-list">${list.map(row).join('')}</div></details>`:`<div class="xdoc-list">${list.map(row).join('')}</div>`}</section>`;
+  return `<section class="xsec xdocs"><h4>Documents<span class="bi-i">เอกสารใน Google Drive</span><a class="xdocs-all" href="${esc(folderUrl())}" target="_blank" rel="noopener">แฟ้มทั้งหมด ↗</a></h4>${!list.length?`<p class="xdoc-none">${noneText||'ไม่มีเอกสารเฉพาะสำหรับวาระนี้'}</p>`:(!files&&a.subgroups.length&&list.length>6)?`<details class="xdocs-more"><summary>แสดงเอกสารทั้ง ${list.length} ไฟล์ของวาระนี้ (เอกสารของแต่ละคณะอยู่ในหน้าคณะทำงานย่อย)</summary><div class="xdoc-list">${list.map(row).join('')}</div></details>`:`<div class="xdoc-list">${list.map(row).join('')}</div>`}</section>`;
 }
 function itemRow(it,label){
   if(it.kind==='divider') return `<div class="xdiv">${hl(it.label)}</div>`;
@@ -1118,8 +1152,8 @@ function viewSubgroup(a,sg,k){
     <h2 class="en-title">${hl(sg.name)}</h2>${th?`<div class="th-title">${hl(th)}</div>`:''}
     <div class="lead-row"><span class="pill${isTH?' lead':''}">${isTH?'ไทยเป็นประเทศนำ (Lead Shepherd)':'ประเทศนำ: '+esc(sg.lead)}</span></div></header>
   ${glance({consider:e.decide,bottom:e.pos,next})}`;
-  if(items.length) h+=`<section class="xsec"><h4>รายการที่เสนอที่ประชุม</h4><div class="xitems">${items.map(it=>itemRow(it,label)).join('')}</div>${notes.map(s=>`<p class="xnote">${hl(s.text)}</p>`).join('')}</section>`;
-  else if(sg.node.intro.length) h+=`<section class="xsec"><h4>สาระสำคัญ</h4><div class="xbody">${sg.node.intro.map(paraHtml).join('')}</div></section>`;
+  if(items.length) h+=`<section class="xsec"><h4>Items for consideration<span class="bi-i">รายการที่เสนอที่ประชุม</span></h4><div class="xitems">${items.map(it=>itemRow(it,label)).join('')}</div>${notes.map(s=>`<p class="xnote">${hl(s.text)}</p>`).join('')}</section>`;
+  else if(sg.node.intro.length) h+=`<section class="xsec"><h4>Key points<span class="bi-i">สาระสำคัญ</span></h4><div class="xbody">${sg.node.intro.map(paraHtml).join('')}</div></section>`;
   h+=positionBlock(sg.node,label,isTH?'ถ้อยแถลงในฐานะประเทศนำ':'ถ้อยแถลง');
   const seen=new Set(), sgFiles=[]; [...(sg.files||[]),...items.flatMap(it=>it.files||[])].forEach(x=>{ if(!seen.has(x.f.id)){ seen.add(x.f.id); sgFiles.push({f:x.f}); } });
   h+=docsBlock(a,sgFiles,'ไม่มีเอกสารเฉพาะสำหรับคณะทำงานย่อยนี้');
@@ -1142,7 +1176,7 @@ document.addEventListener('click',e=>{ if(e.target.closest('[data-open-drive]'))
 function viewOverview(){
   const m=D.meta, vis=new Set(visibleAgendas());
   let h=`<div class="xmast"><div class="eyebrow">การประชุม BIMSTEC ${esc(m.short||'JWG-CTTC')} · ${esc((m.venue||'').replace(/^ณ\s*/,''))}</div>
-    <h2 class="h2">ระเบียบวาระการประชุม</h2>
+    <h2 class="h2">Agenda<span class="bi">ระเบียบวาระการประชุม</span></h2>
     <div class="sub">${D.agendas.length} วาระ · ${esc(m.dates.replace(/^ระหว่าง/,''))}${m.asOf?` · ข้อมูล ณ ${esc(m.asOf)}`:''}</div></div>${briefBanner()}`;
   D.days.forEach(d=>{ const items=d.items.filter(a=>vis.has(a)); if(!items.length) return;
     h+=`<section class="xday"><h3>${esc(d.label)}</h3>`+items.map(a=>{ const e=execOf(a);
@@ -1167,11 +1201,11 @@ function viewAgenda(a){
     <h2 class="en-title">${hl(a.title)}</h2>${e.th?`<div class="th-title">${hl(e.th)}</div>`:''}</header>${glance(e)}`;
   if(a.subgroups.length){
     const intro=a.node.intro.filter(p=>p.text);
-    h+=`<section class="xsec"><h4>รายคณะทำงานย่อย</h4><div class="sgt-h"><span>คณะทำงานย่อย</span><span>เสนอที่ประชุม</span><span>ท่าทีไทย</span><span></span></div><div class="sgt">${a.subgroups.map((sg,k)=>sgLink(a,sg,k)).join('')}</div><p class="sgt-hint">แตะแต่ละคณะเพื่อดูรายละเอียด หรือกดถัดไปเพื่อไล่ทีละคณะ</p></section>`;
+    h+=`<section class="xsec"><h4>Sub-Groups<span class="bi-i">รายคณะทำงานย่อย</span></h4><div class="sgt-h"><span>คณะทำงานย่อย</span><span>เสนอที่ประชุม</span><span>ท่าทีไทย</span><span></span></div><div class="sgt">${a.subgroups.map((sg,k)=>sgLink(a,sg,k)).join('')}</div><p class="sgt-hint">แตะแต่ละคณะเพื่อดูรายละเอียด หรือกดถัดไปเพื่อไล่ทีละคณะ</p></section>`;
     h+=positionBlock(a.node,label);
   } else {
     h+=factsBlock(a.node);
-    if(a.node.items.length) h+=`<section class="xsec"><h4>รายการที่เสนอ</h4><div class="xitems">${a.node.items.map(it=>itemRow(it,label)).join('')}</div></section>`;
+    if(a.node.items.length) h+=`<section class="xsec"><h4>Items for consideration<span class="bi-i">รายการที่เสนอ</span></h4><div class="xitems">${a.node.items.map(it=>itemRow(it,label)).join('')}</div></section>`;
     h+=positionBlock(a.node,label);
   }
   h+=docsBlock(a);
@@ -1464,11 +1498,11 @@ document.addEventListener('submit',e=>{ if(e.target&&e.target.id==='folderForm')
 /* ================= trip hub ================= */
 const TZ_IN='Asia/Kolkata', TZ_TH='Asia/Bangkok';
 const TRIP={
-  title:'การเดินทางไปราชการ ณ กรุงนิวเดลี สาธารณรัฐอินเดีย',
+  title:'Official Mission to New Delhi, Republic of India', titleTh:'การเดินทางไปราชการ ณ กรุงนิวเดลี สาธารณรัฐอินเดีย',
   eyebrow:'JWG-CTTC Mission Hub · BIMSTEC',
-  dates:'27 – 30 กันยายน 2569',
+  dates:'27 – 30 September 2026', datesTh:'27 – 30 กันยายน 2569',
   depart:'2026-09-27T07:35:00+07:00', back:'2026-09-30T05:25:00+07:00',
-  hotel:{name:'ITC Maurya, a Luxury Collection Hotel', addr:'Sardar Patel Marg, Akhaura Block, Diplomatic Enclave, Chanakyapuri, New Delhi 110021', phones:['+91-124-4816900','+91-124-6718000'], checkin:'อา. 27 ก.ย. หลัง 15:00 น.', checkout:'อ. 29 ก.ย. เช้าก่อนออกไปประชุม (เก็บสัมภาระไว้ในรถตู้)', cancel:'ยกเลิกฟรีถึง 25 ก.ย. 2569 เวลา 23:59 น. (เวลาโรงแรม) สำหรับห้องที่จองเอง'},
+  hotel:{name:'ITC Maurya, a Luxury Collection Hotel', addr:'Sardar Patel Marg, Akhaura Block, Diplomatic Enclave, Chanakyapuri, New Delhi 110021', phones:['+91-124-4816900','+91-124-6718000'], checkin:'Sunday, 27 September 2026', checkout:'Tuesday, 29 September 2026', cancel:'ยกเลิกฟรีถึง 25 ก.ย. 2569 เวลา 23:59 น. (เวลาโรงแรม) สำหรับห้องที่จองเอง'},
   venue:{name:'Sushma Swaraj Bhawan',org:'กระทรวงการต่างประเทศอินเดีย (MEA)',addr:'15 A, Dr Rizal Marg, Chanakyapuri, New Delhi 110021'},
   flights:[
     {no:'TG 323',from:'BKK',to:'DEL',dep:'2026-09-27T07:35:00+07:00',arr:'2026-09-27T10:35:00+05:30'},
@@ -1485,7 +1519,7 @@ const TRIP={
     {name:'Mr. Sarawit Pratchprueng',role:'Analyst, สมช. · Mobile / WhatsApp',tel:'+66 98 661 5549',mail:'sarawit.offy@gmail.com'},
     {name:'Mr. Panutad Watcharaporn',role:'Analyst, สมช. · Mobile / WhatsApp',tel:'+66 81 815 5997',mail:'panutad@nsc.go.th'}
   ],
-  transport:['รถตู้ 7 ที่นั่งจากกระทรวงการต่างประเทศอินเดีย (MEA)','รถ Toyota Hiace ที่ฝ่ายไทยเช่าเพิ่ม 1 คัน เฉพาะ 27 และ 29 ก.ย. (ไม่รวม 28 ก.ย.)','วันประชุม: ขอให้เจ้าหน้าที่ประสานงาน (Liaison Officer) รับที่โรงแรม 08:00 น.'],
+  transport:['รถตู้ 7 ที่นั่งจากกระทรวงการต่างประเทศอินเดีย (MEA)','รถ Toyota Hiace ที่ฝ่ายไทยเช่าเพิ่ม 1 คัน เฉพาะ 27 และ 29 ก.ย. (ไม่รวม 28 ก.ย.)','วันประชุม: นัดหมาย 08:00 น.'],
   hostContacts:[
     {grp:'Counter Terrorism Division, MEA',name:'Shri Rahul Kumar Rakesh',role:'Deputy Secretary (CT)',tel:'+91 9958976045',mail:'dirct@mea.gov.in'},
     {grp:'Counter Terrorism Division, MEA',name:'Shri Niraj Kumar',role:'Section Officer (CT)',tel:'+91 8800204001',mail:'soct@mea.gov.in'},
@@ -1500,7 +1534,7 @@ const TRIP={
   ]
 };
 const fmtT=(iso,tz)=>new Date(iso).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:tz});
-const fmtD=(iso,tz)=>new Date(iso).toLocaleDateString('th-TH',{weekday:'short',day:'numeric',month:'short',timeZone:tz});
+const fmtD=(iso,tz)=>{ const o={timeZone:tz}; const d=new Date(iso); const wd=d.toLocaleDateString('th-TH',Object.assign({weekday:'long'},o)); const dm=d.toLocaleDateString('th-TH',Object.assign({day:'numeric',month:'long',year:'numeric'},o)); return `${wd.startsWith('วัน')?wd:'วัน'+wd}ที่ ${dm}`; };
 const IN=(d,t)=>`2026-09-${d}T${t}:00+05:30`;
 function scheduleDays(){
   const [out,back]=TRIP.flights;
@@ -1509,17 +1543,17 @@ function scheduleDays(){
   const meetEv=(n,at,label)=>{ const d=meet(n); return ev(at,'meeting',`การประชุม JWG-CTTC ครั้งที่ 11 — ${label}`,{body:d?`ระเบียบวาระที่ ${d.items[0].n}–${d.items[d.items.length-1].n}`:'',ags:d?d.items:[]}); };
   const V=TRIP.venue.name;
   return [
-    {date:'2026-09-27',label:'อาทิตย์ 27 กันยายน 2569',tag:'เดินทางถึงนิวเดลี',items:[
+    {date:'2026-09-27',label:'วันอาทิตย์ที่ 27 กันยายน 2569',tag:'เดินทางถึงนิวเดลี',items:[
       ev(out.dep,'flight',`ออกเดินทางจากท่าอากาศยานสุวรรณภูมิ · ${out.no}`,{tz:TZ_TH,body:'กรุงเทพฯ (BKK) → นิวเดลี (DEL)'}),
       ev(out.arr,'flight','ถึงท่าอากาศยานอินทิรา คานธี (DEL) อาคารผู้โดยสาร 3',{body:'รับรองที่สนามบิน ผ่านพิธีการตรวจคนเข้าเมือง รับสัมภาระ · รถ 2 คัน (รถตู้ MEA และรถที่ฝ่ายไทยเช่า)'}),
-      ev(IN(27,'11:35'),'visit','ชมเมือง: India Gate และ National Museum',{body:'National Museum เปิด 10:00–18:00 น. · หากมีเวลา แวะ Malcha Marg Shopping Complex'}),
+      ev(IN(27,'11:35'),'visit','Sightseeing: India Gate และ National Museum',{body:'National Museum เปิด 10:00–18:00 น. · หากมีเวลา แวะ Malcha Marg Shopping Complex'}),
       ev(IN(27,'13:00'),'meal','รับประทานอาหารกลางวัน · Moti Mahal Deluxe',{body:'10/48 Malcha Marg Shopping Complex, Chanakyapuri'}),
       ev(IN(27,'15:00'),'hotel','เดินทางเข้าโรงแรม ITC Maurya และเช็กอิน'),
-      ev(IN(27,'16:00'),'visit','เวลาอิสระ / ชม Humayun’s Tomb',{note:'ยืดหยุ่น'}),
+      ev(IN(27,'16:00'),'visit','พักผ่อนตามอัธยาศัย / Sightseeing: Humayun’s Tomb',{note:'ยืดหยุ่น'}),
       ev(IN(27,'19:00'),'meal','อาหารค่ำ · Khan Market',{label:'ค่ำ',tbc:true})
     ]},
-    {date:'2026-09-28',label:'จันทร์ 28 กันยายน 2569',tag:'ประชุมวันที่ 1 · งานเลี้ยงรับรอง',items:[
-      ev(IN(28,'08:15'),'move',`ออกจากโรงแรมไป ${V}`,{body:'เจ้าหน้าที่ประสานงานรับที่โรงแรม 08:00 น.'}),
+    {date:'2026-09-28',label:'วันจันทร์ที่ 28 กันยายน 2569',tag:'ประชุมวันที่ 1 · งานเลี้ยงรับรอง',items:[
+      ev(IN(28,'08:15'),'move',`ออกจากโรงแรมไป ${V}`,{body:'นัดหมาย 08:00 น.'}),
       ev(IN(28,'08:30'),'move',`ถึงสถานที่ประชุม ${V}`),
       ev(IN(28,'09:00'),'meeting','ลงทะเบียน'),
       ev(IN(28,'09:30'),'meeting','ถ่ายภาพหมู่'),
@@ -1527,8 +1561,8 @@ function scheduleDays(){
       ev(IN(28,'19:00'),'meal',`งานเลี้ยงรับรองอย่างเป็นทางการ · ${V}`),
       ev(IN(28,'21:30'),'hotel','กลับโรงแรม ITC Maurya',{label:'ค่ำ',body:'เจ้าหน้าที่ประสานงานส่งกลับโรงแรม'})
     ]},
-    {date:'2026-09-29',label:'อังคาร 29 กันยายน 2569',tag:'ประชุมวันที่ 2 · เดินทางกลับ',items:[
-      ev(IN(29,'08:15'),'hotel',`เช็กเอาต์ และออกจากโรงแรมไป ${V}`,{body:'เก็บสัมภาระไว้ในรถตู้ · เจ้าหน้าที่ประสานงานรับ 08:00 น. · ใช้รถที่ฝ่ายไทยเช่า'}),
+    {date:'2026-09-29',label:'วันอังคารที่ 29 กันยายน 2569',tag:'ประชุมวันที่ 2 · เดินทางกลับ',items:[
+      ev(IN(29,'08:15'),'hotel',`เช็กเอาต์ และออกจากโรงแรมไป ${V}`,{body:'นัดหมาย 08:00 น. · เก็บสัมภาระไว้ในรถตู้ · ใช้รถที่ฝ่ายไทยเช่า'}),
       ev(IN(29,'08:30'),'move',`ถึงสถานที่ประชุม ${V}`),
       ev(IN(29,'09:00'),'meeting','ลงทะเบียน'),
       meetEv(29,IN(29,'09:30'),'วันที่ 2'),
@@ -1537,7 +1571,7 @@ function scheduleDays(){
       ev(IN(29,'19:00'),'move','เดินทางไปท่าอากาศยานอินทิรา คานธี อาคารผู้โดยสาร 3'),
       ev(back.dep,'flight',`ออกเดินทางกลับประเทศไทย · ${back.no}`,{body:'นิวเดลี (DEL) → กรุงเทพฯ (BKK)'})
     ]},
-    {date:'2026-09-30',label:'พุธ 30 กันยายน 2569',tag:'ถึงกรุงเทพฯ',items:[
+    {date:'2026-09-30',label:'วันพุธที่ 30 กันยายน 2569',tag:'ถึงกรุงเทพฯ',items:[
       ev(back.arr,'flight','ถึงท่าอากาศยานสุวรรณภูมิ',{tz:TZ_TH,body:'สิ้นสุดการเดินทาง'})
     ]}
   ];
@@ -1557,90 +1591,131 @@ function evHtml(e,nx){
 function daysUntil(iso){ const ms=new Date(iso).getTime()-Date.now(); return Math.ceil(ms/864e5); }
 function tripStatus(){
   const now=Date.now(), dep=new Date(TRIP.depart).getTime(), back=new Date(TRIP.back).getTime();
-  if(now<dep){ const d=daysUntil(TRIP.depart); return d<=1?'<span class="count">ออกเดินทางพรุ่งนี้</span>':`อีก <span class="count">${d} วัน</span> ออกเดินทาง`; }
-  if(now<=back) return '<span class="count">อยู่ระหว่างการเดินทาง</span>';
-  return 'การเดินทางสิ้นสุดแล้ว';
+  if(now<dep){ const d=daysUntil(TRIP.depart); return d<=1?'<span class="count">Departing tomorrow</span> <span class="bi-i">ออกเดินทางพรุ่งนี้</span>':`<span class="count">${d} days</span> to departure <span class="bi-i">อีก ${d} วันออกเดินทาง</span>`; }
+  if(now<=back) return '<span class="count">Mission in progress</span> <span class="bi-i">อยู่ระหว่างการเดินทาง</span>';
+  return 'Mission completed <span class="bi-i">การเดินทางสิ้นสุดแล้ว</span>';
 }
 
 function viewHome(){
   const [out,back]=TRIP.flights; const nx=nextEvent();
   const A=D?D.agendas:[];
   const menu=[
-    ['#schedule','1','กำหนดการ','27–30 ก.ย. · เที่ยวบิน กิจกรรม และวันประชุมที่ Sushma Swaraj Bhawan'],
-    ['#delegation','2','รายชื่อคณะเดินทาง',`${TRIP.people.length} คน จาก สมช. และ กต. · ผู้ประสานงานคณะ`],
-    ['#travel','3','Travel India','การเข้าเมือง การแต่งกาย สภาพอากาศ และเบอร์ติดต่อ'],
-    ['#jwg','4','JWG-CTTC',D?`${A.length} วาระ · สาระสำคัญ ท่าทีไทย และถ้อยแถลง`:'ระเบียบวาระการประชุม']
+    ['#schedule','1','Schedule','กำหนดการ','Flights, activities and meeting days'],
+    ['#delegation','2','Delegation','รายชื่อคณะเดินทาง',`${TRIP.people.length} members · ONSC and MFA`],
+    ['#travel','3','Travel India','ข้อมูลสำคัญของประเทศอินเดีย','Entry, weather, attire and contacts'],
+    ['#jwg','4','JWG-CTTC','ระเบียบวาระ สาระสำคัญ และท่าทีไทย',D?`${A.length} agenda items · positions and statements`:'Meeting agenda']
   ];
   return `<div class="cover">
-  <section class="hero"><div class="eyebrow">${esc(TRIP.eyebrow)}</div><h1>${esc(TRIP.title)}</h1><div class="dates">${esc(TRIP.dates)}</div>
+  <section class="hero"><div class="eyebrow">${esc(TRIP.eyebrow)}</div><h1>${esc(TRIP.title)}</h1><div class="h1-th">${esc(TRIP.titleTh)}</div><div class="dates">${esc(TRIP.dates)} <span class="bi-i">${esc(TRIP.datesTh)}</span></div>
     <div class="route" aria-label="เส้นทางบิน">
-      <span class="ap"><b>BKK</b><small>กรุงเทพฯ</small></span><span class="leg"><span>${esc(out.no)} · 27 ก.ย.</span></span>
-      <span class="ap"><b>DEL</b><small>นิวเดลี</small></span><span class="leg"><span>${esc(back.no)} · 29 ก.ย.</span></span>
-      <span class="ap"><b>BKK</b><small>30 ก.ย.</small></span>
+      <span class="ap"><b>BKK</b><small>Bangkok</small></span><span class="leg"><span>${esc(out.no)} · 27 Sep</span></span>
+      <span class="ap"><b>DEL</b><small>New Delhi</small></span><span class="leg"><span>${esc(back.no)} · 29 Sep</span></span>
+      <span class="ap"><b>BKK</b><small>30 Sep</small></span>
     </div>
-    <div class="status-row"><span>${tripStatus()}</span>${nx?`<span class="next"><span class="k">ถัดไป</span><span>${esc(fmtD(nx.at,nx.tz))} ${nx.label?esc(nx.label):esc(fmtT(nx.at,nx.tz))+' น.'} — ${esc(nx.title)}</span></span>`:''}</div>
+    <div class="status-row"><span>${tripStatus()}</span>${nx?`<span class="next"><span class="k">Next · ถัดไป</span><span>${esc(fmtD(nx.at,nx.tz))} ${nx.label?esc(nx.label):esc(fmtT(nx.at,nx.tz))+' น.'} — ${esc(nx.title)}</span></span>`:''}</div>
   </section>
-  <nav class="menu" aria-label="เมนู">${menu.map(m=>`<a class="mi" href="${m[0]}"><span class="num">${m[1]}</span><span><b>${esc(m[2])}</b><small>${esc(m[3])}</small></span><span class="go">→</span></a>`).join('')}</nav>
-  <div class="cover-foot"><span>คณะผู้แทนไทย · การประชุม BIMSTEC JWG-CTTC ครั้งที่ 11</span><span>สำนักงานสภาความมั่นคงแห่งชาติ</span></div>
+  <nav class="menu" aria-label="Menu">${menu.map(m=>`<a class="mi" href="${m[0]}"><span class="num">${m[1]}</span><span><b>${esc(m[2])}</b><span class="mi-th">${esc(m[3])}</span><small>${esc(m[4])}</small></span><span class="go">→</span></a>`).join('')}</nav>
+  <div class="cover-foot"><span>Thai Delegation · 11th BIMSTEC JWG-CTTC <span class="bi-i">คณะผู้แทนไทย</span></span><span>Office of the National Security Council <span class="bi-i">สำนักงานสภาความมั่นคงแห่งชาติ</span></span></div>
   </div>`;
 }
 function viewSchedule(){
   const days=scheduleDays(), nx=nextEvent();
   const todayIN=new Date().toLocaleDateString('en-CA',{timeZone:TZ_IN});
   const v=TRIP.venue;
-  return `<div class="sec-title"><span class="num">1</span><h2 class="h2">กำหนดการ</h2></div><p class="lead">เวลาในอินเดีย (IST, UTC+5:30) พร้อมเวลาไทยกำกับ · สถานที่ประชุม ${esc(v.name)} ${esc(v.org)}</p>
-  ${days.map(d=>`<section class="day${d.date===todayIN?' today':''}"><div class="day-top"><h3>${esc(d.label)}</h3><span class="tag">${esc(d.tag)}</span>${d.date===todayIN?'<span class="today-pill">วันนี้</span>':''}</div>
+  return `<div class="sec-title"><span class="num">1</span><h2 class="h2">Schedule<span class="bi">กำหนดการ</span></h2></div><p class="lead">เวลาในอินเดีย (IST, UTC+5:30) พร้อมเวลาไทยกำกับ · สถานที่ประชุม ${esc(v.name)} ${esc(v.org)}</p>
+  ${days.map(d=>`<section class="day${d.date===todayIN?' today':''}"><div class="day-top"><h3>${esc(d.label)}</h3><span class="tag en">${esc(new Date(d.date+'T12:00:00+05:30').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}))}</span><span class="tag">${esc(d.tag)}</span>${d.date===todayIN?'<span class="today-pill">วันนี้</span>':''}</div>
     <div class="tl">${d.items.map(e=>evHtml(e,nx)).join('')}</div></section>`).join('')}
-  <p class="src-note">ที่มา: Detailed Programme and Schedule ของคณะผู้แทนไทย (สมช. 25 ก.ย. 2569) บัตรโดยสาร และระเบียบวาระการประชุมพร้อมคำอธิบาย (BIMSTEC/JWG-CTTC/11/2026/01/Rev.1)</p>`;
+`;
 }
 function viewDelegation(){
   const [out,back]=TRIP.flights, h=TRIP.hotel;
-  return `<div class="sec-title"><span class="num">2</span><h2 class="h2">รายชื่อคณะเดินทาง</h2></div><p class="lead">คณะผู้แทนไทย ${TRIP.people.length} คน เดินทางเที่ยวบินเดียวกันและพักโรงแรมเดียวกันทั้งคณะ</p>
+  return `<div class="sec-title"><span class="num">2</span><h2 class="h2">Delegation<span class="bi">รายชื่อคณะเดินทาง</span></h2></div><p class="lead">Thai Delegation · คณะผู้แทนไทย ${TRIP.people.length} คน</p>
   <div class="people">${TRIP.people.map((p,i)=>`<div class="person${p.hod?' hod':''}"><span class="no">${i+1}</span>
     <div><div class="nm">${esc(p.name)}</div><div class="ds">${esc(p.pos)}${p.hod?' · <b>หัวหน้าคณะผู้แทน</b>':''}</div><div class="og">${esc(p.org)}</div></div>
 </div>`).join('')}</div>
   <div class="cards">
-    <div class="card full"><h3>ผู้ประสานงานคณะผู้แทนไทย</h3>${TRIP.poc.map(contactRow).join('')}</div>
-    <div class="card"><h3>เที่ยวบิน</h3><dl class="kv">
+    <div class="card full"><h3>Point of Contact<span class="bi-i">ผู้ประสานงานคณะผู้แทนไทย</span></h3>${TRIP.poc.map(contactRow).join('')}</div>
+    <div class="card"><h3>Flights<span class="bi-i">เที่ยวบิน</span></h3><dl class="kv">
       <dt>ขาไป</dt><dd><b>${esc(out.no)}</b> · ${esc(fmtD(out.dep,TZ_TH))}<br>BKK ${fmtT(out.dep,TZ_TH)} → DEL ${fmtT(out.arr,TZ_IN)} (เวลาท้องถิ่น) · อาคาร 3</dd>
       <dt>ขากลับ</dt><dd><b>${esc(back.no)}</b> · ${esc(fmtD(back.dep,TZ_IN))}<br>DEL ${fmtT(back.dep,TZ_IN)} (อาคาร 3) → BKK ${fmtT(back.arr,TZ_TH)} (+1)</dd></dl></div>
-    <div class="card"><h3>ที่พัก</h3><dl class="kv"><dt>โรงแรม</dt><dd>${esc(h.name)}</dd><dt>เช็กอิน</dt><dd>${esc(h.checkin)}</dd><dt>เช็กเอาต์</dt><dd>${esc(h.checkout)}</dd></dl></div>
-    <div class="card full"><h3>การเดินทางในนิวเดลี</h3><ul>${TRIP.transport.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>
+    <div class="card"><h3>Accommodation<span class="bi-i">ที่พัก</span></h3><dl class="kv"><dt>โรงแรม</dt><dd>${esc(h.name)}</dd><dt>Check-in</dt><dd>${esc(h.checkin)}</dd><dt>Check-out</dt><dd>${esc(h.checkout)}</dd></dl></div>
+    <div class="card full"><h3>Ground Transport<span class="bi-i">การเดินทางในนิวเดลี</span></h3><ul>${TRIP.transport.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>
   </div>
-  <p class="src-note">ที่มา: Detailed Programme and Schedule (สมช. 25 ก.ย. 2569) แบบฟอร์มลงทะเบียนล่วงหน้า และใบยืนยันการจองที่พัก · หน้านี้ไม่แสดงเลขหนังสือเดินทาง ที่อยู่ส่วนตัว หรือเลขการจอง</p>`;
+`;
 }
 function contactRow(c){ return `<div class="contact"><span class="cn">${esc(c.name)}</span><span class="cr">${esc(c.role)}</span><span class="cv">${c.tel?`<span>${esc(c.tel)}</span><button class="cp" type="button" data-copytext="${esc(c.tel)}">คัดลอก</button>`:''}${c.mail?`<span>${esc(c.mail)}</span><button class="cp" type="button" data-copytext="${esc(c.mail)}">คัดลอก</button>`:''}</span></div>`; }
+function facesheet(){
+  const facts=[
+    ['Most populous','ประเทศที่มีประชากรมากที่สุดในโลก แซงจีนตั้งแต่ปี 2566 ตามการประมาณการของสหประชาชาติ'],
+    ['Satyameva Jayate','คำขวัญประจำชาติ แปลว่า “ความจริงเท่านั้นที่ชนะ” อยู่ใต้ตราแผ่นดินรูปสิงห์สี่หน้าของพระเจ้าอโศก'],
+    ['24 spokes','กงล้อธรรมจักรกลางธงชาติมี 24 ซี่ มาจากเสาอโศก ธงชาติจึงมีรากร่วมกับพุทธศาสนา'],
+    ['22 languages','รัฐธรรมนูญรับรองภาษาไว้ 22 ภาษา ภาษาราชการของรัฐบาลกลางคือฮินดีและอังกฤษ'],
+    ['Bodh Gaya','พุทธคยา รัฐพิหาร สถานที่ตรัสรู้ของพระพุทธเจ้า เป็นมรดกโลก และมีวัดไทยตั้งอยู่'],
+    ['Ramayana','รามายณะของอินเดียเป็นต้นเรื่องของรามเกียรติ์ มรดกทางวัฒนธรรมที่ไทยกับอินเดียมีร่วมกัน'],
+    ['3 World Heritage sites','กรุงเดลีมีมรดกโลก 3 แห่ง: สุสานหุมายูน (อยู่ในกำหนดการ 27 ก.ย.) กุตุบมีนาร์ และป้อมแดง'],
+    ['Sushma Swaraj Bhawan','สถานที่ประชุม ตั้งชื่อตามอดีตรัฐมนตรีว่าการกระทรวงการต่างประเทศอินเดีย เดิมชื่อ Pravasi Bharatiya Kendra']
+  ];
+  return `<section class="fs">
+  <div class="fs-head"><div class="fs-eyebrow">Facesheet</div><h3 class="fs-title">Republic of India<span class="bi-i">ข้อมูลพื้นฐานสาธารณรัฐอินเดีย</span></h3></div>
+  <div class="fs-band">
+    <div><small>Population · ประชากร</small><b>1,477 ล้าน</b><span>ปี 2568</span></div>
+    <div><small>GDP growth · เศรษฐกิจ</small><b>7.3%</b><span>ปี 2568 · คาด 6.4% ปี 2569</span></div>
+    <div><small>GDP per capita</small><b>US$2,818</b><span>ปี 2568</span></div>
+    <div><small>Trade with Thailand</small><b>US$21.8 bn</b><span>ปี 2568 · +25.0%</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><h3>At a glance<span class="bi-i">ข้อมูลทั่วไป</span></h3><dl class="kv">
+      <dt>ชื่อทางการ</dt><dd>Republic of India (Bharat)</dd>
+      <dt>เมืองหลวง</dt><dd>New Delhi</dd>
+      <dt>การปกครอง</dt><dd>สาธารณรัฐแบบรัฐสภา ระบบสหพันธรัฐ · 28 รัฐ และ 8 ดินแดนสหภาพ</dd>
+      <dt>ภาษาราชการ</dt><dd>ฮินดี และอังกฤษ</dd>
+      <dt>สกุลเงิน</dt><dd>รูปีอินเดีย (INR)</dd>
+      <dt>เวลา</dt><dd>IST (UTC+5:30) ช้ากว่าไทย 1 ชม. 30 นาที</dd></dl></div>
+    <div class="card"><h3>Key leaders<span class="bi-i">ผู้นำสำคัญ</span></h3><dl class="kv">
+      <dt>ประธานาธิบดี</dt><dd>Smt Droupadi Murmu</dd>
+      <dt>รองประธานาธิบดี</dt><dd>Shri C. P. Radhakrishnan</dd>
+      <dt>นายกรัฐมนตรี</dt><dd>Shri Narendra Modi · สมัยที่ 3 ตั้งแต่ 9 มิ.ย. 2567</dd>
+      <dt>รมว. มหาดไทย</dt><dd>Shri Amit Shah</dd>
+      <dt>รมว. ต่างประเทศ</dt><dd>Dr. S. Jaishankar</dd>
+      <dt>ที่ปรึกษาด้านความมั่นคงแห่งชาติ</dt><dd>Shri Ajit Doval</dd></dl></div>
+    <div class="card"><h3>Thailand – India<span class="bi-i">ความสัมพันธ์ไทย–อินเดีย</span></h3><div class="fs-tl">
+      <b>1 ส.ค. 2490</b><span>สถาปนาความสัมพันธ์ทางการทูต</span>
+      <b>3 เม.ย. 2568</b><span>ยกระดับเป็นหุ้นส่วนเชิงยุทธศาสตร์ ระหว่างการเยือนไทยของนายกรัฐมนตรีโมดีและการประชุมสุดยอด BIMSTEC ครั้งที่ 6 ที่กรุงเทพฯ</span>
+      <b>ปี 2568</b><span>อินเดียเป็นคู่ค้าอันดับ 7 ของไทย · ไทยส่งออก US$15,820 ล้าน นำเข้า US$6,003 ล้าน</span></div></div>
+    <div class="card"><h3>India in BIMSTEC<span class="bi-i">อินเดียใน BIMSTEC</span></h3><dl class="kv">
+      <dt>สถานะ</dt><dd>ประเทศผู้ก่อตั้ง (ปฏิญญากรุงเทพฯ 6 มิ.ย. 2540)</dd>
+      <dt>บทบาทนำ</dt><dd>สาขาความมั่นคง ครอบคลุมการต่อต้านการก่อการร้ายและอาชญากรรมข้ามชาติ การจัดการภัยพิบัติ และความมั่นคงทางพลังงาน</dd>
+      <dt>กฎบัตร BIMSTEC</dt><dd>มีผลใช้บังคับ 20 พ.ค. 2567</dd>
+      <dt>ประธานปัจจุบัน</dt><dd>บังกลาเทศ</dd></dl></div>
+    <div class="card full"><h3>Did you know?<span class="bi-i">เกร็ดความรู้เกี่ยวกับอินเดีย</span></h3>
+      <div class="facts">${facts.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div></div>
+  </div></section>`;
+}
 function viewTravel(){
   const h=TRIP.hotel, out=TRIP.flights[0], v=TRIP.venue;
   const open=new Date(new Date(out.arr).getTime()-72*3600e3).toISOString();
   const groups={}; TRIP.hostContacts.forEach(c=>(groups[c.grp]=groups[c.grp]||[]).push(c));
   const map=q=>`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">แผนที่ ↗</a>`;
-  return `<div class="sec-title"><span class="num">3</span><h2 class="h2">Travel India</h2></div><p class="lead">ข้อมูลที่ต้องใช้ระหว่างเดินทาง อ้างอิงแหล่งทางการของรัฐบาลอินเดีย สถานเอกอัครราชทูตไทย และเอกสารของ กภช.</p>
+  return `<div class="sec-title"><span class="num">3</span><h2 class="h2">Travel India<span class="bi">ข้อมูลสำคัญของประเทศอินเดีย</span></h2></div>${facesheet()}<div class="fs-sep"><span>Travel essentials · ข้อมูลการเดินทาง</span></div>
   <div class="cards">
-    <div class="card"><h3>การเข้าเมือง</h3>
+    <div class="card"><h3>Entry<span class="bi-i">การเข้าเมือง</span></h3>
       <p><b>ยกเว้นการตรวจลงตรา</b> สำหรับผู้ถือหนังสือเดินทางทูตและราชการของไทย พำนักได้ไม่เกิน 90 วัน (ความตกลงลงนาม 9 ต.ค. 2546 มีผล 1 มี.ค. 2547)</p>
-      <p><b>e-Arrival Card</b> ชาวต่างชาติกรอกออนไลน์ภายใน 72 ชม. ก่อนถึงอินเดีย ไม่ใช่วีซ่า — สำหรับ ${esc(out.no)} กรอกได้ตั้งแต่ ${esc(fmtD(open,TZ_IN))} ${fmtT(open,TZ_IN)} น. เวลาอินเดีย ที่ <a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener">indianvisaonline.gov.in/earrival</a></p>
-      <p class="src-note"><a href="https://www.mea.gov.in/bvwa-passport" target="_blank" rel="noopener">MEA</a> · <a href="https://boi.gov.in/boi/" target="_blank" rel="noopener">Bureau of Immigration</a></p></div>
-    <div class="card"><h3>สภาพอากาศและการแต่งกาย</h3>
+      <p><b>e-Arrival Card</b> ชาวต่างชาติกรอกออนไลน์ภายใน 72 ชม. ก่อนถึงอินเดีย ไม่ใช่วีซ่า — สำหรับ ${esc(out.no)} กรอกได้ตั้งแต่ ${esc(fmtD(open,TZ_IN))} ${fmtT(open,TZ_IN)} น. เวลาอินเดีย ที่ <a href="https://indianvisaonline.gov.in/earrival/" target="_blank" rel="noopener">indianvisaonline.gov.in/earrival</a></p></div>
+    <div class="card"><h3>Weather &amp; Attire<span class="bi-i">สภาพอากาศและการแต่งกาย</span></h3>
       <p>ค่าปกติเดือนกันยายนของนิวเดลี สูงสุดเฉลี่ย <b>34°C</b> ต่ำสุดเฉลี่ย <b>25°C</b> ฝนตกเฉลี่ยราว 5–6 วันต่อเดือน ร้อนชื้นช่วงปลายฤดูมรสุม</p>
-      <ul><li>ประชุมและงานเลี้ยง: ชุดสูทสากลสีเข้ม</li><li>ห้องประชุมเปิดแอร์เย็นจัด ควรมีเสื้อคลุมบางสำรอง</li><li>เสื้อผ้าเนื้อบางใต้สูท ร่มพับ และรองเท้ากันลื่น</li></ul>
-      <p class="src-note"><a href="https://mausam.imd.gov.in/newdelhi/mcdata/safdarjung2.pdf" target="_blank" rel="noopener">IMD ค่าปกติ 1991–2020 สถานี Safdarjung</a> · บัญชีเอกสาร 3 (Visit India) ของ กภช.</p></div>
-    <div class="card"><h3>สถานที่ประชุม</h3><dl class="kv"><dt>สถานที่</dt><dd>${esc(v.name)} · ${esc(v.org)}</dd><dt>ที่อยู่</dt><dd>${esc(v.addr)} ${map('Sushma Swaraj Bhawan New Delhi')}</dd><dt>ออกจากโรงแรม</dt><dd>08:15 น. ทั้ง 2 วัน</dd></dl>
-      <p class="src-note">ที่มา: กำหนดการคณะผู้แทนไทย และเอกสารของ MEA</p></div>
-    <div class="card"><h3>ที่พัก</h3><dl class="kv"><dt>โรงแรม</dt><dd>${esc(h.name)}</dd><dt>ที่อยู่</dt><dd>${esc(h.addr)} ${map('ITC Maurya New Delhi')}</dd><dt>โทร</dt><dd>${h.phones.map(t=>`${esc(t)} <button class="cp" type="button" data-copytext="${esc(t)}">คัดลอก</button>`).join('<br>')}</dd></dl></div>
-    <div class="card"><h3>เวลา เงิน และการสื่อสาร</h3>
+      <ul><li>ประชุมและงานเลี้ยง: ชุดสูทสากลสีเข้ม</li><li>ห้องประชุมเปิดแอร์เย็นจัด ควรมีเสื้อคลุมบางสำรอง</li><li>เสื้อผ้าเนื้อบางใต้สูท ร่มพับ และรองเท้ากันลื่น</li></ul></div>
+    <div class="card"><h3>Venue<span class="bi-i">สถานที่ประชุม</span></h3><dl class="kv"><dt>สถานที่</dt><dd>${esc(v.name)} · ${esc(v.org)}</dd><dt>ที่อยู่</dt><dd>${esc(v.addr)} ${map('Sushma Swaraj Bhawan New Delhi')}</dd><dt>นัดหมาย</dt><dd>08:00 น. ทั้ง 2 วัน</dd></dl></div>
+    <div class="card"><h3>Accommodation<span class="bi-i">ที่พัก</span></h3><dl class="kv"><dt>โรงแรม</dt><dd>${esc(h.name)}</dd><dt>ที่อยู่</dt><dd>${esc(h.addr)} ${map('ITC Maurya New Delhi')}</dd><dt>โทร</dt><dd>${h.phones.map(t=>`${esc(t)} <button class="cp" type="button" data-copytext="${esc(t)}">คัดลอก</button>`).join('<br>')}</dd></dl></div>
+    <div class="card"><h3>Time, Money &amp; Connectivity<span class="bi-i">เวลา เงิน และการสื่อสาร</span></h3>
       <div class="clocks"><div><small>นิวเดลี (IST)</small><span class="big" id="clkIN">--:--</span></div><div><small>กรุงเทพฯ</small><span class="big" id="clkTH">--:--</span></div></div>
       <ul><li>เวลาอินเดียช้ากว่าไทย 1 ชม. 30 นาที</li><li>เงินรูปี (INR) แลกเงินสดสำรองเล็กน้อย ใช้ Travel Card ได้ในร้านค้าชั้นนำ</li><li>ไฟฟ้า 230 โวลต์ ปลั๊กแบบ C, D และ M ควรพกหัวแปลง</li><li>เปิดโรมมิ่งหรือใช้ eSIM</li></ul></div>
-    <div class="card"><h3>ข้อควรรู้</h3>
-      <ul><li>จราจรหนาแน่นโดยเฉพาะเมื่อฝนตก เผื่อเวลาเดินทาง 45–60 นาที</li><li>หลีกเลี่ยงน้ำประปาและน้ำแข็งที่ไม่ทราบแหล่งที่มา พกยากันยุงและยาประจำตัว</li><li>ทักทายด้วยการไหว้ (Namaste) หรือจับมือในบริบททางการ หลีกเลี่ยงการใช้มือซ้ายส่งของหรือรับประทานอาหาร</li></ul>
-      <p class="src-note">ที่มา: บัญชีเอกสาร 3 (Visit India) ของ กภช.</p></div>
-    <div class="card full"><h3>ติดต่อฉุกเฉิน</h3>
+    <div class="card"><h3>Good to Know<span class="bi-i">ข้อควรรู้</span></h3>
+      <ul><li>จราจรหนาแน่นโดยเฉพาะเมื่อฝนตก เผื่อเวลาเดินทาง 45–60 นาที</li><li>หลีกเลี่ยงน้ำประปาและน้ำแข็งที่ไม่ทราบแหล่งที่มา พกยากันยุงและยาประจำตัว</li><li>ทักทายด้วยการไหว้ (Namaste) หรือจับมือในบริบททางการ หลีกเลี่ยงการใช้มือซ้ายส่งของหรือรับประทานอาหาร</li></ul></div>
+    <div class="card full"><h3>Emergency Contacts<span class="bi-i">ติดต่อฉุกเฉิน</span></h3>
       <div class="contact"><span class="cn">เบอร์ฉุกเฉินรวม 112</span><span class="cr">ตำรวจ 100 · รถพยาบาล 102 / 108</span><span class="cv"><span>112</span></span></div>
-      <div class="contact"><span class="cn">สถานเอกอัครราชทูต ณ กรุงนิวเดลี</span><span class="cr">จ.–ศ. 09:00–17:00 น.</span><span class="cv"><span>56-N Nyaya Marg, Chanakyapuri, New Delhi 110021</span></span><span class="cv"><span>+91 11 2419 7200</span><button class="cp" type="button" data-copytext="+91 11 2419 7200">คัดลอก</button><span>งานกงสุล +91 11 2419 7156</span><button class="cp" type="button" data-copytext="+91 11 2419 7156">คัดลอก</button></span></div>
-      <p class="src-note">สถานทูต โรงแรม และสถานที่ประชุมอยู่ในเขต Chanakyapuri ทั้งหมด · <a href="https://112.gov.in/" target="_blank" rel="noopener">112.gov.in</a> · <a href="https://newdelhi.thaiembassy.org/en/contact-us-3/" target="_blank" rel="noopener">สถานเอกอัครราชทูต</a></p></div>
-    <div class="card full"><h3>ผู้ประสานงานฝ่ายเจ้าภาพ</h3>
-      ${Object.keys(groups).map(g=>`<div class="dgrp-k" style="margin-top:8px">${esc(g)}</div>${groups[g].map(contactRow).join('')}`).join('')}
-      <p class="src-note">ที่มา: แบบฟอร์มลงทะเบียนล่วงหน้า BIMSTEC/JWG-CTTC/11/2025/INF/02 (For Delegates Only)</p></div>
+      <div class="contact"><span class="cn">สถานเอกอัครราชทูต ณ กรุงนิวเดลี</span><span class="cr">จ.–ศ. 09:00–17:00 น.</span><span class="cv"><span>56-N Nyaya Marg, Chanakyapuri, New Delhi 110021</span></span><span class="cv"><span>+91 11 2419 7200</span><button class="cp" type="button" data-copytext="+91 11 2419 7200">คัดลอก</button><span>งานกงสุล +91 11 2419 7156</span><button class="cp" type="button" data-copytext="+91 11 2419 7156">คัดลอก</button></span></div></div>
+    <div class="card full"><h3>Host Contacts<span class="bi-i">ผู้ประสานงานฝ่ายเจ้าภาพ</span></h3>
+      ${Object.keys(groups).map(g=>`<div class="dgrp-k" style="margin-top:8px">${esc(g)}</div>${groups[g].map(contactRow).join('')}`).join('')}</div>
   </div>`;
 }
 function tickClocks(){ const a=$('clkIN'), b=$('clkTH'); if(!a) return; const n=new Date().toISOString(); a.textContent=fmtT(n,TZ_IN); b.textContent=fmtT(n,TZ_TH); }
@@ -1730,7 +1805,7 @@ document.addEventListener('change',e=>{ if(e.target&&e.target.id==='glToggle'){ 
 function viewGlossary(){
   const groups={}; GLOSS.filter(x=>!(x.t==='ToR'||x.t==='NSCs')).forEach(x=>(groups[x.g]=groups[x.g]||[]).push(x));
   const q=Q.toLowerCase();
-  let h=`<nav class="crumb"><a href="#jwg">ระเบียบวาระ</a><span>›</span><span>คำย่อ</span></nav><h2 class="h2">คำย่อและศัพท์เฉพาะ</h2>
+  let h=`<nav class="crumb"><a href="#jwg">ระเบียบวาระ</a><span>›</span><span>คำย่อ</span></nav><h2 class="h2">Glossary<span class="bi">คำย่อและศัพท์เฉพาะ</span></h2>
   <p class="lead">แตะคำที่มีเส้นประใต้ในหน้าวาระเพื่อดูความหมาย · <label class="gl-sw"><input type="checkbox" id="glToggle"${GLOSS_ON?' checked':''}> แสดงเส้นใต้คำย่อในหน้าวาระ</label></p>`;
   Object.keys(groups).forEach(g=>{ const items=groups[g].filter(x=>!q||(x.t+' '+x.f+' '+x.th).toLowerCase().includes(q)); if(!items.length) return;
     h+=`<section class="gl-sec"><h3>${esc(g)}</h3><div class="gl-grid">${items.map(x=>`<div class="gl-item">${glCard(x)}</div>`).join('')}</div></section>`; });
