@@ -699,6 +699,39 @@ a.sgl .chev{margin-top:3px}
 .fs-sep{display:flex;align-items:center;gap:12px;margin:30px 0 16px;color:var(--gold);font-size:13px}
 .fs-sep::after{content:"";flex:1;height:1px;background:var(--gold);opacity:.45}
 @media (max-width: 699px){ .fs-band{grid-template-columns:repeat(2,minmax(0,1fr))} .fs-band div:nth-child(3){border-left:0} .fs-band div:nth-child(n+3){border-top:1px solid var(--line)} .facts{grid-template-columns:minmax(0,1fr)} .fs-tl{grid-template-columns:88px minmax(0,1fr)} }
+.kv-s{display:block;color:var(--muted);font-size:13px}
+.bm-members{display:grid;font-size:15px}
+.bm-members>div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:6px 0;border-top:1px solid var(--line)}
+.bm-members>div:first-child{border-top:0}
+.bm-members b{font-weight:500}.bm-members span{color:var(--ink-2)}
+.bm-members>.th{background:var(--gold-soft);margin:0 -10px;padding:6px 10px;border-radius:6px;border-top-color:transparent}
+.bm-members>.in span{color:var(--accent);font-weight:500}
+.bm-sec{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px}
+.bm-rung{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);text-decoration:none}
+.bm-rung.now{border-color:var(--accent);background:var(--accent-soft)}
+a.bm-rung.now:hover{border-color:var(--gold)}
+.bm-rung .k{font-family:var(--f-mono);font-size:13px;font-weight:500;color:var(--accent);padding-top:2px}
+.bm-rung b{display:block;font-weight:500;font-size:15px}
+.bm-rung small{display:block;font-size:13px;color:var(--muted)}
+.bm-arrow{height:18px;padding-left:44px;color:var(--line-strong);font-size:12px;line-height:18px}
+.bm-sgs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.bm-sg{font-size:12.5px;border:1px solid var(--line-strong);border-radius:999px;padding:1px 9px;color:var(--ink-2);background:var(--surface)}
+.bm-sg.th{border-color:var(--gold);background:var(--gold-soft);color:var(--ink)}
+.bm-sg.x{border-style:dashed;color:var(--muted)}
+.bm-legend{margin-top:10px;font-size:12.5px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.bm-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin-right:5px;border:1px solid var(--gold);background:var(--gold-soft)}
+.bm-legend i.x{border:1px dashed var(--muted);background:transparent}
+.bm-side{display:grid;gap:14px;align-content:start}
+.bm-side h4{margin:0 0 6px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.bm-bn{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px}
+.bm-bn b{font-weight:500}.bm-bn small{display:block;color:var(--muted);font-size:13px}
+.bm-inst{list-style:none;margin:0;padding:0;font-size:14.5px}
+.bm-inst li{padding:7px 0;border-top:1px solid var(--line)}.bm-inst li:first-child{border-top:0;padding-top:0}
+.bm-inst b{font-weight:500}.bm-inst small{display:block;color:var(--muted);font-size:13px}
+.bm-inst .pill{display:inline-block;font-size:11.5px;border-radius:999px;padding:0 7px;margin-left:4px;vertical-align:1px}
+.bm-inst .pill.ok{background:var(--accent-soft);color:var(--accent)}.bm-inst .pill.dr{background:var(--surface-2);color:var(--muted)}
+@media (max-width: 899px){ .bm-sec{grid-template-columns:minmax(0,1fr)} }
+@media (max-width: 699px){ .bm-members>div{grid-template-columns:96px minmax(0,1fr)} .bm-rung{grid-template-columns:minmax(0,1fr);gap:2px} }
 #wx{scroll-margin-top:calc(var(--toph,120px) + 12px)}
 .wx-lead{margin:0 0 12px;font-size:14.5px;color:var(--muted)}
 .wx-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin:4px 0 16px}
@@ -754,7 +787,8 @@ a.sgl .chev{margin-top:3px}
   <a href="#schedule" data-sec="schedule"><span class="tn">1</span><span class="tb2">Schedule<small>กำหนดการ</small></span></a>
   <a href="#delegation" data-sec="delegation"><span class="tn">2</span><span class="tb2">Delegation<small>รายชื่อคณะเดินทาง</small></span></a>
   <a href="#travel" data-sec="travel"><span class="tn">3</span><span class="tb2">Travel India<small>ข้อมูลอินเดีย</small></span></a>
-  <a href="#jwg" data-sec="jwg"><span class="tn">4</span><span class="tb2">JWG-CTTC<small>ระเบียบวาระ</small></span></a>
+  <a href="#bimstec" data-sec="bimstec"><span class="tn">4</span><span class="tb2">BIMSTEC<small>ข้อมูลพื้นฐาน</small></span></a>
+  <a href="#jwg" data-sec="jwg"><span class="tn">5</span><span class="tb2">JWG-CTTC<small>ระเบียบวาระ</small></span></a>
  </nav>
 </header>
 
@@ -1251,7 +1285,7 @@ function viewAnnex(){
 function viewDocs(){ return viewOverview(); }
 
 let lastRoute=null, BOOT_ERR='';
-const TRIP_VIEWS={'':()=>viewHome(),'schedule':()=>viewSchedule(),'delegation':()=>viewDelegation(),'travel':()=>viewTravel()};
+const TRIP_VIEWS={'':()=>viewHome(),'schedule':()=>viewSchedule(),'delegation':()=>viewDelegation(),'travel':()=>viewTravel(),'bimstec':()=>viewBimstec()};
 function route(){
   const hsh=(location.hash||'').replace(/^#/,'');
   let html, cur='', sec;
@@ -1635,7 +1669,8 @@ function viewHome(){
     ['#schedule','1','Schedule','กำหนดการ','Flights, activities and meeting days'],
     ['#delegation','2','Delegation','รายชื่อคณะเดินทาง',`${TRIP.people.length} members · ONSC and MFA`],
     ['#travel','3','Travel India','ข้อมูลสำคัญของประเทศอินเดีย','Facesheet, weather forecast, entry and contacts'],
-    ['#jwg','4','JWG-CTTC','ระเบียบวาระ สาระสำคัญ และท่าทีไทย',D?`${A.length} agenda items · positions and statements`:'Meeting agenda']
+    ['#bimstec','4','BIMSTEC','ข้อมูลพื้นฐาน BIMSTEC','Factsheet, security pillar and shared heritage'],
+    ['#jwg','5','JWG-CTTC','ระเบียบวาระ สาระสำคัญ และท่าทีไทย',D?`${A.length} agenda items · positions and statements`:'Meeting agenda']
   ];
   return `<div class="cover">
   <section class="hero"><div class="eyebrow">${esc(TRIP.eyebrow)}</div><h1>${esc(TRIP.title)}</h1><div class="h1-th">${esc(TRIP.titleTh)}</div><div class="dates">${esc(TRIP.dates)} <span class="bi-i">${esc(TRIP.datesTh)}</span></div>
@@ -1676,6 +1711,7 @@ function viewDelegation(){
 `;
 }
 function contactRow(c){ return `<div class="contact"><span class="cn">${esc(c.name)}</span><span class="cr">${esc(c.role)}</span><span class="cv">${c.tel?`<span>${esc(c.tel)}</span><button class="cp" type="button" data-copytext="${esc(c.tel)}">คัดลอก</button>`:''}${c.mail?`<span>${esc(c.mail)}</span><button class="cp" type="button" data-copytext="${esc(c.mail)}">คัดลอก</button>`:''}</span></div>`; }
+function factGrid(a){ return `<div class="facts">${a.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>`; }
 function facesheet(){
   const facts=[
     ['Most populous','ประเทศที่มีประชากรมากที่สุดในโลก สหประชาชาติประมาณการว่าแซงจีนในเดือนเมษายน 2566'],
@@ -1687,17 +1723,7 @@ function facesheet(){
     ['3 World Heritage sites','กรุงเดลีมีมรดกโลก 3 แห่ง: สุสานหุมายูน (อยู่ในกำหนดการ 27 ก.ย.) กุตุบมีนาร์ และป้อมแดง'],
     ['Sushma Swaraj Bhawan','สถานที่ประชุม เดิมชื่อ Pravasi Bharatiya Kendra กระทรวงการต่างประเทศอินเดียเปลี่ยนชื่อเมื่อ ก.พ. 2563 เพื่อรำลึกถึงอดีตรัฐมนตรีว่าการกระทรวงการต่างประเทศ']
   ];
-  const ties=[
-    ['From BIST-EC to BIMSTEC','เริ่มจาก 4 ประเทศ (บังกลาเทศ อินเดีย ศรีลังกา ไทย) ในชื่อ BIST-EC เมื่อ 6 มิ.ย. 2540 เมียนมาเข้าร่วม 22 ธ.ค. 2540 เนปาลและภูฏานเข้าร่วม ก.พ. 2547 และใช้ชื่อปัจจุบันตั้งแต่การประชุมสุดยอดครั้งที่ 1 เมื่อ 31 ก.ค. 2547'],
-    ['1.8 billion people','ประเทศสมาชิก 7 ประเทศมีประชากรรวมกว่า 1,800 ล้านคน และ GDP รวมกว่า 4.5 ล้านล้านดอลลาร์สหรัฐ เป็นสะพานเชื่อมเอเชียใต้กับเอเชียตะวันออกเฉียงใต้'],
-    ['Bangkok bookends','กรุงเทพฯ เป็นที่ลงนามปฏิญญาก่อตั้ง (2540) และเป็นเจ้าภาพทั้งการประชุมสุดยอดครั้งที่ 1 (2547) และครั้งที่ 6 (2568)'],
-    ['Suvarnabhumi','ราว 2,000 ปีก่อน พระเจ้าอโศกส่งสมณทูตมาเผยแผ่พุทธศาสนายังสุวรรณภูมิ ถือเป็นจุดเริ่มต้นความสัมพันธ์ไทย–อินเดีย'],
-    ['Lumbini','สถานที่ประสูติของพระพุทธเจ้าอยู่ที่ลุมพินี ประเทศเนปาล ขึ้นทะเบียนมรดกโลกปี 2540 มีเสาศิลาที่พระเจ้าอโศกทรงสร้างไว้เมื่อเสด็จมาสักการะ'],
-    ['Songkran','คำว่าสงกรานต์มาจากภาษาสันสกฤต แปลว่าการเคลื่อนย้าย หมายถึงดวงอาทิตย์ย้ายเข้าราศีเมษตามระบบสุริยคติที่มีรากจากอารยธรรมเอเชียใต้ UNESCO ขึ้นทะเบียนสงกรานต์ในไทยเป็นมรดกทางวัฒนธรรมที่จับต้องไม่ได้เมื่อปี 2566'],
-    ['Pali & Sanskrit','ภาษาบาลีเป็นภาษาทางศาสนาของไทย และคำไทยจำนวนมากมีรากศัพท์จากภาษาบาลีและสันสกฤต'],
-    ['Holy Relics 2024','ปี 2567 อินเดียอัญเชิญพระบรมสารีริกธาตุและพระธาตุพระอัครสาวก 2 องค์มาให้สักการะในไทย 26 วัน ที่กรุงเทพฯ เชียงใหม่ อุบลราชธานี และกระบี่ มีผู้มาสักการะกว่า 4 ล้านคน']
-  ];
-  const grid=a=>`<div class="facts">${a.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>`;
+  const grid=factGrid;
   return `<section class="fs">
   <div class="fs-head"><div class="fs-eyebrow">Facesheet</div><h3 class="fs-title">Republic of India<span class="bi-i">ข้อมูลพื้นฐานสาธารณรัฐอินเดีย</span></h3></div>
   <div class="fs-band">
@@ -1732,8 +1758,6 @@ function facesheet(){
       <dt>ประธานปัจจุบัน</dt><dd>บังกลาเทศ</dd></dl></div>
     <div class="card full"><h3>Did you know?<span class="bi-i">เกร็ดความรู้เกี่ยวกับอินเดีย</span></h3>
       ${grid(facts)}</div>
-    <div class="card full"><h3>Bay of Bengal ties<span class="bi-i">BIMSTEC และวัฒนธรรมร่วม</span></h3>
-      ${grid(ties)}</div>
   </div></section>`;
 }
 
@@ -1779,6 +1803,58 @@ function weatherBlock(){
     </article>`; }).join('')}</div>
   <div class="wx-foot"><span>พยากรณ์ของกรมอุตุนิยมวิทยาอินเดีย (IMD) ฉบับ${esc(iss)} ตัวเลขอาจเปลี่ยนตามฉบับล่าสุด</span>
     <span class="wx-links"><a href="${WX.imd}" target="_blank" rel="noopener">IMD New Delhi ฉบับล่าสุด ↗</a><a href="${WX.tmd}" target="_blank" rel="noopener">กรุงเทพฯ · กรมอุตุนิยมวิทยา ↗</a></span></div>`;
+}
+function viewBimstec(){
+  const ties=[
+    ['From BIST-EC to BIMSTEC','เริ่มจาก 4 ประเทศ (บังกลาเทศ อินเดีย ศรีลังกา ไทย) ในชื่อ BIST-EC เมื่อ 6 มิ.ย. 2540 เมียนมาเข้าร่วม 22 ธ.ค. 2540 เนปาลและภูฏานเข้าร่วม ก.พ. 2547 และใช้ชื่อปัจจุบันตั้งแต่การประชุมสุดยอดครั้งที่ 1 เมื่อ 31 ก.ค. 2547'],
+    ['Bangkok bookends','กรุงเทพฯ เป็นที่ลงนามปฏิญญาก่อตั้ง (2540) และเป็นเจ้าภาพทั้งการประชุมสุดยอดครั้งที่ 1 (2547) และครั้งที่ 6 (2568)'],
+    ['Suvarnabhumi','ราว 2,000 ปีก่อน พระเจ้าอโศกส่งสมณทูตมาเผยแผ่พุทธศาสนายังสุวรรณภูมิ ถือเป็นจุดเริ่มต้นความสัมพันธ์ไทย–อินเดีย'],
+    ['Lumbini','สถานที่ประสูติของพระพุทธเจ้าอยู่ที่ลุมพินี ประเทศเนปาล ขึ้นทะเบียนมรดกโลกปี 2540 มีเสาศิลาที่พระเจ้าอโศกทรงสร้างไว้เมื่อเสด็จมาสักการะ'],
+    ['Songkran','คำว่าสงกรานต์มาจากภาษาสันสกฤต แปลว่าการเคลื่อนย้าย หมายถึงดวงอาทิตย์ย้ายเข้าราศีเมษตามระบบสุริยคติที่มีรากจากอารยธรรมเอเชียใต้ UNESCO ขึ้นทะเบียนสงกรานต์ในไทยเป็นมรดกทางวัฒนธรรมที่จับต้องไม่ได้เมื่อปี 2566'],
+    ['Pali & Sanskrit','ภาษาบาลีเป็นภาษาทางศาสนาของไทย และคำไทยจำนวนมากมีรากศัพท์จากภาษาบาลีและสันสกฤต'],
+    ['Holy Relics 2024','ปี 2567 อินเดียอัญเชิญพระบรมสารีริกธาตุและพระธาตุพระอัครสาวก 2 องค์มาให้สักการะในไทย 26 วัน ที่กรุงเทพฯ เชียงใหม่ อุบลราชธานี และกระบี่ มีผู้มาสักการะกว่า 4 ล้านคน']
+  ];
+  const members=[['Bangladesh','การค้า การลงทุน และการพัฒนา'],['Bhutan','สิ่งแวดล้อมและการเปลี่ยนแปลงสภาพภูมิอากาศ'],['India','ความมั่นคง','in'],['Myanmar','เกษตรและความมั่นคงทางอาหาร'],['Nepal','ความสัมพันธ์ระดับประชาชน'],['Sri Lanka','วิทยาศาสตร์ เทคโนโลยี และนวัตกรรม'],['Thailand','ความเชื่อมโยง','th']];
+  const sgs=[['ค้ามนุษย์','BD'],['ยาเสพติด','MM'],['AML/CFT','TH','th'],['กฎหมายและการบังคับใช้กฎหมาย','IN'],['แนวคิดสุดโต่งและการก่อการร้าย','IN'],['ข่าวกรอง','LK','x']];
+  return `<div class="sec-title"><span class="num">4</span><h2 class="h2">BIMSTEC<span class="bi">ข้อมูลพื้นฐาน BIMSTEC</span></h2></div>
+  <section class="fs">
+  <div class="fs-head"><div class="fs-eyebrow">Factsheet</div><h3 class="fs-title">Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation</h3></div>
+  <div class="fs-band">
+    <div><small>Members · สมาชิก</small><b>7</b><span>เอเชียใต้ 5 · อาเซียน 2</span></div>
+    <div><small>Population · ประชากร</small><b>1.8 bn+</b><span>รวม 7 ประเทศ</span></div>
+    <div><small>Combined GDP</small><b>US$4.5 tn+</b><span>รวม 7 ประเทศ</span></div>
+    <div><small>Chair · ประธาน</small><b>Bangladesh</b><span>ตั้งแต่ 4 เม.ย. 2568</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><h3>At a glance<span class="bi-i">ข้อมูลทั่วไป</span></h3><dl class="kv">
+      <dt>ก่อตั้ง</dt><dd>6 มิ.ย. 2540 ตามปฏิญญากรุงเทพฯ<small class="kv-s">เริ่มจาก 4 ประเทศในชื่อ BIST-EC</small></dd>
+      <dt>สำนักเลขาธิการ</dt><dd>กรุงธากา บังกลาเทศ<small class="kv-s">จัดตั้งตามมติการประชุมสุดยอดปี 2557</small></dd>
+      <dt>เลขาธิการ</dt><dd>Ambassador Indra Mani Pandey (อินเดีย)<small class="kv-s">คนที่ 4 · รับตำแหน่ง 4 ม.ค. 2567 วาระ 3 ปี</small></dd>
+      <dt>กฎบัตร</dt><dd>ลงนาม 30 มี.ค. 2565 ที่โคลัมโบ<small class="kv-s">มีผลใช้บังคับ 20 พ.ค. 2567</small></dd>
+      <dt>ประชุมสุดยอด</dt><dd>6 ครั้ง · ครั้งที่ 6 ที่กรุงเทพฯ 4 เม.ย. 2568<small class="kv-s">รับรอง Bangkok Vision 2030 และความตกลงว่าด้วยความร่วมมือด้านการขนส่งทางทะเล</small></dd></dl></div>
+    <div class="card"><h3>Members &amp; lead sectors<span class="bi-i">สมาชิกและสาขาที่เป็นผู้นำ</span></h3><div class="bm-members">
+      ${members.map(m=>`<div${m[2]?` class="${m[2]}"`:''}><b>${m[0]}</b><span>${m[1]}</span></div>`).join('')}</div></div>
+    <div class="card full"><h3>Security pillar<span class="bi-i">เสาความมั่นคง ซึ่งอินเดียเป็นประเทศนำ</span></h3>
+      <div class="bm-sec"><div>
+        <div class="bm-rung"><span class="k">HMM</span><div><b>การประชุมรัฐมนตรีมหาดไทย</b><small>ครั้งที่ 1 · 13 ต.ค. 2569 นิวเดลี · จัดตั้งตามมติการประชุมสุดยอดครั้งที่ 6</small></div></div>
+        <div class="bm-arrow">▲</div>
+        <div class="bm-rung"><span class="k">SOM-H</span><div><b>การประชุมเจ้าหน้าที่ระดับสูงกระทรวงมหาดไทย</b><small>ครั้งที่ 1 · 12 ต.ค. 2569 นิวเดลี · รับรองเอกสารจาก JWG-CTTC ก่อนเสนอรัฐมนตรี</small></div></div>
+        <div class="bm-arrow">▲</div>
+        <a class="bm-rung now" href="#jwg"><span class="k">JWG-CTTC</span><div><b>คณะทำงานร่วมด้านการต่อต้านการก่อการร้ายและอาชญากรรมข้ามชาติ</b><small>ครั้งแรก ธ.ค. 2547 นิวเดลี · ครั้งที่ 11 · 28–29 ก.ย. 2569 นิวเดลี</small>
+          <div class="bm-sgs">${sgs.map(g=>`<span class="bm-sg${g[2]?' '+g[2]:''}">${g[0]} · ${g[1]}</span>`).join('')}</div></div></a>
+        <div class="bm-legend"><span><i></i>ไทยเป็นประเทศนำ</span><span><i class="x"></i>อยู่ระหว่างพิจารณาว่าจะคงไว้หรือยุบ</span></div>
+      </div>
+      <div class="bm-side">
+        <div><h4>Strategic track</h4><div class="bm-bn"><b>BNSCs · การประชุมหัวหน้าฝ่ายความมั่นคง</b><small>เน้นประเด็นเชิงยุทธศาสตร์และนโยบาย · ครั้งที่ 5 · 16 ก.ค. 2569 นิวเดลี</small></div></div>
+        <div><h4>Legal instruments</h4><ul class="bm-inst">
+          <li><b>อนุสัญญาต่อต้านการก่อการร้าย อาชญากรรมข้ามชาติ และการลักลอบค้ายาเสพติด</b><span class="pill ok">มีผลแล้ว</span><small>ลงนาม 11 ธ.ค. 2552 · มีผล 16 มี.ค. 2564</small></li>
+          <li><b>อนุสัญญาความช่วยเหลือซึ่งกันและกันในเรื่องทางอาญา (MLA)</b><span class="pill ok">ลงนามแล้ว</span><small>ลงนาม 30 มี.ค. 2565 · ให้สัตยาบันครบทุกประเทศยกเว้นเนปาล</small></li>
+          <li><b>อนุสัญญาต่อต้านการค้ามนุษย์ · ส่งผู้ร้ายข้ามแดน · โอนตัวผู้ต้องคำพิพากษา</b><span class="pill dr">ร่าง</span><small>อยู่ระหว่างเจรจาหรือขอความเห็นชอบ</small></li>
+        </ul></div>
+      </div></div></div>
+    <div class="card full"><h3>Bay of Bengal ties<span class="bi-i">เกร็ดความรู้ BIMSTEC และวัฒนธรรมร่วม</span></h3>
+      ${factGrid(ties)}</div>
+  </div></section>`;
 }
 function viewTravel(){
   const h=TRIP.hotel, out=TRIP.flights[0], v=TRIP.venue;
@@ -1868,7 +1944,7 @@ const GLOSS_RE=(()=>{ const ts=GLOSS.map(x=>x.t).sort((a,b)=>b.length-a.length).
 let GLOSS_ON=(store.get('jwg.gloss')!==false);
 function applyGloss(root){
   if(!GLOSS_ON||!root) return;
-  const skip='a,button,summary,.speech-body,.reader,script,style,input,textarea,.gl,.agstrip,.crumb,.code,.xdoc,.xfile,.pill,.en-title,.nm';
+  const skip='a,button,summary,.sec-title,.card>h3,.fs-head,.speech-body,.reader,script,style,input,textarea,.gl,.agstrip,.crumb,.code,.xdoc,.xfile,.pill,.en-title,.nm';
   const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{ if(!n.nodeValue||!GLOSS_RE.test(n.nodeValue)){ GLOSS_RE.lastIndex=0; return NodeFilter.FILTER_REJECT; } GLOSS_RE.lastIndex=0; return n.parentElement&&n.parentElement.closest(skip)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT; }});
   const nodes=[]; while(w.nextNode()) nodes.push(w.currentNode);
   nodes.forEach(n=>{ const frag=document.createDocumentFragment(); let last=0, s=n.nodeValue, m; GLOSS_RE.lastIndex=0;
